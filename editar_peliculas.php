@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Editar Usuarios</title>
+    <title>Editar Peliculas</title>
   </head>
   <body>
 
@@ -39,7 +39,7 @@
         <?php
 
           if (empty($_GET)) {
-            echo "No se han recibido datos del usuario";
+            echo "No se han recibido datos de la Pelicula";
             exit();
           }
 
@@ -52,45 +52,45 @@
                 exit();
             }
 
-            $query="SELECT * from usuario where id_usuario='".$_GET["id"]."'";
+            $query="SELECT * from peliculas where id_pelicula='".$_GET["id"]."'";
 
             if ($result = $connection->query($query))  {
 
               $obj = $result->fetch_object();
 
               if ($result->num_rows==0) {
-                echo "NO EXISTE ESE USUARIO";
+                echo "NO EXISTE ESTA PELICULA";
                 exit();
               }
 
 
 
+              $id_pelicula = $obj->id_pelicula;
               $nombre = $obj->nombre;
-              $apellidos = $obj->apellidos;
-              $id = $obj->id_usuario;
-              $direccion = $obj->direccion;
-              $password = $obj->password;
-              $email = $obj->email;
+              $fecha = $obj->fecha;
+              $director = $obj->director;
+              $genero = $obj->genero;
+              
 
             } else {
-              echo "No se han recuperar los datos del usuario";
+              echo "No se han recuperar los datos de la Pelicula";
               exit();
             }
 
           ?>
 
-          <?php if (!isset($_POST["nombre"])) : ?>
+          <?php if (!isset($_POST["id_pelicula"])) : ?>
 
           <form method="post">
             <fieldset>
-              <legend>Información del Usuario</legend>
-              <span>Nombre:</span><input value='<?php echo $nombre; ?>'type="text" name="nombre" required><br>
-              <span>Apellidos:</span><input value='<?php echo $apellidos; ?>' type="text" name="apellidos" required><br>
-              <span>ID Usuario:</span><input value='<?php echo $id; ?>'type="text" name="id_usuario" required><br>
-              <span>Direccion:</span><input value='<?php echo $direccion; ?>' type="text" name="direccion" required><br>
-              <span>Password:</span><input value='<?php echo $password; ?>'type="password" name="password" required><br>
-              <span>Email:</span><input value='<?php echo $email; ?>'type="text" name="email" required><br>
-              <input type="hidden" name="id" value='<?php echo $id; ?>'>
+              <legend>Información de La Pelicula</legend>
+              <span>ID Pelicula:</span><input value='<?php echo $id_pelicula; ?>'type="text" name="id_pelicula" required><br>
+              <span>Nombre:</span><input value='<?php echo $nombre; ?>' type="text" name="nombre" required><br>
+              <span>Fecha:</span><input value='<?php echo $fecha; ?>'type="text" name="fecha" required><br>
+              <span>Director:</span><input value='<?php echo $director; ?>' type="text" name="director" required><br>
+              <span>Genero:</span><input value='<?php echo $genero; ?>'type="text" name="genero" required><br>
+              
+              <input type="hidden" name="id_pelicula" value='<?php echo $id_pelicula; ?>'>
               <p><input type="submit" value="Actualizar"></p>
             </fieldset>
           </form>
@@ -101,12 +101,11 @@
 
 
 
+          $id_pelicula = $_POST["id_pelicula"];
           $nombre = $_POST["nombre"];
-          $apellidos = $_POST["apellidos"];
-          $id = $_POST["id"];
-          $direccion = $_POST["direccion"];
-          $password = md5($_POST["password"]);
-          $email = $_POST["email"];
+          $fecha = $_POST["fecha"];
+          $director = md5($_POST["director"]);
+          $genero = $_POST["genero"];
 
           $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
           $connection->set_charset("uft8");
@@ -116,18 +115,18 @@
               exit();
           }
 
-          $query="update usuario set nombre='$nombre',
-          apellidos='$apellidos', id_usuario='$id', direccion='$direccion', password='$password',
-          email='$email' WHERE id_usuario='$id'";
+          $query="update peliculas set id_pelicula='$id_pelicula',
+          nombre='$nombre', fecha='$fecha', director='$director', genero='$genero',
+          WHERE id_pelicula='$id_pelicula'";
 
           if ($result = $connection->query($query)) {
-            echo "Usuario actualizado <br>";
+            echo "Pelicula Actualizada <br>";
           } else {
             echo "Error al actualizar los datos <br>";
           }
 
           ?>
          <?php endif ?>
-        <a href='administrarusuarios.php'><input type='button' style='color: #FF0000' value='Volver'></a>
+        <a href='editapelcula.php'><input type='button' style='color: #FF0000' value='Volver'></a>
 
   </div>

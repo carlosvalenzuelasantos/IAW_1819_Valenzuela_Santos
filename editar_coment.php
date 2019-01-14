@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Editar Usuarios</title>
+    <title>Editar Coment</title>
   </head>
   <body>
 
@@ -52,7 +52,7 @@
                 exit();
             }
 
-            $query="SELECT * from usuario where id_usuario='".$_GET["id"]."'";
+            $query="SELECT * from comentar where id_usuario='".$_GET["id"]."'";
 
             if ($result = $connection->query($query))  {
 
@@ -65,12 +65,11 @@
 
 
 
-              $nombre = $obj->nombre;
-              $apellidos = $obj->apellidos;
+              $valoracion = $obj->valoracion;
+              $comentarios = $obj->comentarios;
+              $id_pelicula = $obj->id_pelicula;
               $id = $obj->id_usuario;
-              $direccion = $obj->direccion;
-              $password = $obj->password;
-              $email = $obj->email;
+              
 
             } else {
               echo "No se han recuperar los datos del usuario";
@@ -79,18 +78,16 @@
 
           ?>
 
-          <?php if (!isset($_POST["nombre"])) : ?>
+          <?php if (!isset($_POST["valoracion"])) : ?>
 
           <form method="post">
             <fieldset>
               <legend>Información del Usuario</legend>
-              <span>Nombre:</span><input value='<?php echo $nombre; ?>'type="text" name="nombre" required><br>
-              <span>Apellidos:</span><input value='<?php echo $apellidos; ?>' type="text" name="apellidos" required><br>
-              <span>ID Usuario:</span><input value='<?php echo $id; ?>'type="text" name="id_usuario" required><br>
-              <span>Direccion:</span><input value='<?php echo $direccion; ?>' type="text" name="direccion" required><br>
-              <span>Password:</span><input value='<?php echo $password; ?>'type="password" name="password" required><br>
-              <span>Email:</span><input value='<?php echo $email; ?>'type="text" name="email" required><br>
-              <input type="hidden" name="id" value='<?php echo $id; ?>'>
+              <span>Valoracion:</span><input value='<?php echo $valoracion; ?>'type="text" name="valoracion" required><br>
+              <span>Comentarios:</span><input value='<?php echo $comentarios; ?>' type="text" name="comentarios" required><br>
+              <span>ID Pelicula:</span><input value='<?php echo $id_pelicula; ?>'type="text" name="id_pelicula" required><br>
+              <span>ID Usuario:</span><input value='<?php echo $id; ?>' type="text" name="id_usuario" required><br>
+              
               <p><input type="submit" value="Actualizar"></p>
             </fieldset>
           </form>
@@ -101,12 +98,11 @@
 
 
 
-          $nombre = $_POST["nombre"];
-          $apellidos = $_POST["apellidos"];
-          $id = $_POST["id"];
-          $direccion = $_POST["direccion"];
-          $password = md5($_POST["password"]);
-          $email = $_POST["email"];
+          $valoracion = $_POST["valoracion"];
+          $comentarios = $_POST["comentarios"];
+          $id_pelicula = $_POST["id_pelicula"];
+          $id = $_POST["id_usuario"];
+         
 
           $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
           $connection->set_charset("uft8");
@@ -116,9 +112,8 @@
               exit();
           }
 
-          $query="update usuario set nombre='$nombre',
-          apellidos='$apellidos', id_usuario='$id', direccion='$direccion', password='$password',
-          email='$email' WHERE id_usuario='$id'";
+          $query="update comentar set valoracion='$valoracion',
+          comentarios='$comentarios', id_pelicula='$id_pelicula', id_usuario='$id', WHERE id_usuario='$id'";
 
           if ($result = $connection->query($query)) {
             echo "Usuario actualizado <br>";
@@ -128,6 +123,6 @@
 
           ?>
          <?php endif ?>
-        <a href='administrarusuarios.php'><input type='button' style='color: #FF0000' value='Volver'></a>
+        <a href='editarcomentarios.php'><input type='button' style='color: #FF0000' value='Volver'></a>
 
   </div>

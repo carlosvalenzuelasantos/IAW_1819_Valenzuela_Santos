@@ -50,21 +50,21 @@ if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
             </tr>
           </thead>
             <tr>
-              <td><a href="anadepelicula.php">Añade una Pelicula</a></td>
+              <td><a href="anade_pelicula.php">Añade una Pelicula</a></td>
             </tr>
             <tr>
-              <td><a href="actores.php">Añade un Actor</a></td>
+              <td><a href="anade_actores.php">Añade un Actor</a></td>
             </tr>
             <tr>
-              <td><a href="editapelicula.php">Edita una Pelicula</a></td>
-            </tr>
-
-            <tr>
-              <td><a href="administrarusuarios.php">Administrar Usuarios</a></td>
+              <td><a href="administrar_peliculas.php">Administrar Pelicula</a></td>
             </tr>
 
             <tr>
-              <td><a href="listadopeliculas.php">Listado de Peliculas</td>
+              <td><a href="administrar_usuarios.php">Administrar Usuarios</a></td>
+            </tr>
+
+            <tr>
+              <td><a href="editar_comentarios.php">Edita Comentarios</td>
             </tr>
 
             <tr>
