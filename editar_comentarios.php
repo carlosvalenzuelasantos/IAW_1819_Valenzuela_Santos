@@ -67,8 +67,8 @@
                     echo "<td>".$obj->id_pelicula."</td>";
                     echo "<td>".$obj->id_usuario."</td>";
                 
-                    echo "<td><a href='borrar_comentarios.php?id=".$obj ->id_usuario."'><img src='img/delete.png' height='25' width='25'/></a></td>";
-                    echo "<td><a href='editar_coment.php?id=".$obj ->id_usuario."'><img src='img/editar.png' height='25' width='25'/></a></td>";
+                    echo "<td><a href='borrar_comentarios.php?id=".$obj ->comentarios."'><img src='img/delete.png' height='25' width='25'/></a></td>";
+                    
 
                   echo "</tr>";
 

@@ -1,4 +1,3 @@
-
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -9,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Administrar Peliculas</title>
+    <title>Administrar Actores</title>
   </head>
   <body>
 
@@ -28,7 +27,7 @@
             <h1 class="text-white display-2">Peliculas.com</h1>
            </div>
            <div class="row justify-content-center">
-           <h2 class="text-white">Administrar Peliculas</h2>
+           <h2 class="text-white">Administrar Actores</h2>
            </div>
         </div>
 
@@ -42,7 +41,7 @@
               exit();
           }
 
-          $query="SELECT * from peliculas";
+          $query="SELECT * from actores";
 
           if ($result = $connection->query($query)) {
 
@@ -50,11 +49,10 @@
               <table style="border:1px solid black">
                 <thead>
                   <tr>
-                    <th>ID Pelicula</th>
+                    <th>ID Actore</th>
                     <th>Nombre</th>
-                    <th>Fecha</th>
-                    <th>Direccion</th>
-                    <th>Genero</th>
+                    <th>Nacionalidad</th>
+                    <th>Fecha de Nacimiento</th>
 
                 </thead><br>
 
@@ -62,13 +60,13 @@
 
               while($obj = $result->fetch_object()) {
                   echo "<tr>";
-                    echo "<td>".$obj->id_pelicula."</td>";
+                    echo "<td>".$obj->id_actor."</td>";
                     echo "<td>".$obj->nombre."</td>";
-                    echo "<td>".$obj->fecha."</td>";
-                    echo "<td>".$obj->director."</td>";
-                    echo "<td>".$obj->genero."</td>";
-                    echo "<td><a href='borrar_peliculas.php?id=".$obj->id_pelicula."'><img src='img/delete.png' height='25' width='25'/></a></td>";
-                    echo "<td><a href='editar_peliculas.php?id=".$obj->id_pelicula."'><img src='img/editar.png' height='25' width='25'/></a></td>";
+                    echo "<td>".$obj->nacionalidad."</td>";
+                    echo "<td>".$obj->fecha_nacimiento."</td>";
+                    
+                    echo "<td><a href='borrar_actores.php?id=".$obj->id_actor."'><img src='img/delete.png' height='25' width='25'/></a></td>";
+                    echo "<td><a href='editar_actores.php?id=".$obj->id_actor."'><img src='img/editar.png' height='25' width='25'/></a></td>";
 
                   echo "</tr>";
 
@@ -85,6 +83,7 @@
 
 
   </div>
+  <a href='root.php'><input type='button' style='color: #FF0000' value='Volver'></a>
 
 </body>
 

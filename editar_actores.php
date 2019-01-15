@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Editar Usuarios</title>
+    <title>Editar Actores</title>
   </head>
   <body>
 
@@ -52,25 +52,24 @@
                 exit();
             }
 
-            $query="SELECT * from usuario where id_usuario='".$_GET["id"]."'";
+            $query="SELECT * from actores where id_actor='".$_GET["id"]."'";
 
             if ($result = $connection->query($query))  {
 
               $obj = $result->fetch_object();
 
               if ($result->num_rows==0) {
-                echo "NO EXISTE ESE USUARIO";
+                echo "NO EXISTE ESE ACTOR";
                 exit();
               }
 
 
 
+              $id = $obj->id_actor;
               $nombre = $obj->nombre;
-              $apellidos = $obj->apellidos;
-              $id = $obj->id_usuario;
-              $direccion = $obj->direccion;
-              $password = $obj->password;
-              $email = $obj->email;
+              $nacionalidad = $obj->nacionalidad;
+              $fecha_nacimiento = $obj->fecha_nacimiento;
+            
 
             } else {
               echo "No se han recuperar los datos del usuario";
@@ -79,17 +78,16 @@
 
           ?>
 
-          <?php if (!isset($_POST["nombre"])) : ?>
+          <?php if (!isset($_POST["id_actor"])) : ?>
 
           <form method="post">
             <fieldset>
               <legend>Información del Usuario</legend>
-              <span>Nombre:</span><input value='<?php echo $nombre; ?>'type="text" name="nombre" required><br>
-              <span>Apellidos:</span><input value='<?php echo $apellidos; ?>' type="text" name="apellidos" required><br>
-              <span>ID Usuario:</span><input value='<?php echo $id; ?>'type="text" name="id_usuario" required><br>
-              <span>Direccion:</span><input value='<?php echo $direccion; ?>' type="text" name="direccion" required><br>
-              <span>Password:</span><input value='<?php echo $password; ?>'type="password" name="password" required><br>
-              <span>Email:</span><input value='<?php echo $email; ?>'type="text" name="email" required><br>
+              <span>ID Actor</span><input value='<?php echo $id; ?>'type="text" name="id_actor" required><br>
+              <span>Nombre y Apellidos:</span><input value='<?php echo $nombre; ?>' type="text" name="nombre" required><br>
+              <span>Nacionalidad:</span><input value='<?php echo $nacionalidad; ?>'type="text" name="nacionalidad" required><br>
+              <span>Fecha de Nacimiento:</span><input value='<?php echo $fecha_nacimiento; ?>' type="text" name="fecha_nacimiento" required><br>
+              
               <input type="hidden" name="id" value='<?php echo $id; ?>'>
               <p><input type="submit" value="Actualizar"></p>
             </fieldset>
@@ -101,12 +99,11 @@
 
 
 
+          $id_actor = $_POST["id"];
           $nombre = $_POST["nombre"];
-          $apellidos = $_POST["apellidos"];
-          $id = $_POST["id"];
-          $direccion = $_POST["direccion"];
-          $password = md5($_POST["password"]);
-          $email = $_POST["email"];
+          $nacionalidad = $_POST["nacionalidad"];
+          $fecha_nacimiento = $_POST["fecha_nacimiento"];
+          
 
           $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
           $connection->set_charset("uft8");
@@ -116,18 +113,19 @@
               exit();
           }
 
-          $query="update usuario set nombre='$nombre',
-          apellidos='$apellidos', id_usuario='$id', direccion='$direccion', password='$password',
-          email='$email' WHERE id_usuario='$id'";
+          $query="UPDATE actores set id_actor='$id',
+          nombre='$nombre', nacionalidad='$nacionalidad', fecha_nacimiento='$fecha_nacimiento' WHERE id_actor='$id'";
+           
+          echo $query; 
 
           if ($result = $connection->query($query)) {
-            header('Location: administrar_usuarios.php');
+            header('Location: administrar_actores.php');
           } else {
             echo "Error al actualizar los datos <br>";
           }
 
           ?>
          <?php endif ?>
-        <a href='administrar_usuarios.php'><input type='button' style='color: #FF0000' value='Volver'></a>
+        <a href='administrar_actores.php'><input type='button' style='color: #FF0000' value='Volver'></a>
 
   </div>

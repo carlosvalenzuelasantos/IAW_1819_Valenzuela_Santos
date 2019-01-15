@@ -75,7 +75,12 @@ if (!isset($_POST["nombre"])) : ?>
 
 <?php endif; ?>
 
+<a href='anade_pelicula.php'><input type='button' style='color: #FF0000' value='Volver a añadir Pelicula'></a>
+<a href='root.php'><input type='button' style='color: #FF0000' value='Volver a Inicio'></a>
+
 </div>
+
+
 
 </body>
 

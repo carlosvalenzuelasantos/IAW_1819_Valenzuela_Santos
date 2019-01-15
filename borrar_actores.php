@@ -1,4 +1,3 @@
-
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -9,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>root</title>
+    <title>Borrar Actores</title>
   </head>
   <body>
 
@@ -29,7 +28,7 @@
             <h1 class="text-white display-2">Peliculas.com</h1>
            </div>
            <div class="row justify-content-center">
-           <h2 class="text-white">Borrar Usuarios: </h2>
+           <h2 class="text-white">Borrar Actores: </h2>
            </div>
         </div>
 
@@ -42,16 +41,16 @@
 
         $id=$_GET['id'];
         echo $id;
-        $consulta= "DELETE FROM usuario WHERE id_usuario='$id'";
+        $consulta= "DELETE FROM actores WHERE id_actor='$id'";
 
         $result = $connection->query($consulta);
 
         if (!$result) {
         echo "Query Error <br>";
         } else {
-          header('Location: administrar_usuarios.php');;
+            header('Location: administrar_actores.php');
         }
 
         ?>
-
+    
   </div>

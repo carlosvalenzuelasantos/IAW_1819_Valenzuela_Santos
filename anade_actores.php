@@ -66,7 +66,7 @@ if (!isset($_POST["nombre"])) : ?>
    if (!$result) {
       echo "Query Error <br>";
    } else {
-       echo "Nuevo Actor Añadido, Gracias<br>";
+      header('Location: administrar_actores.php');
    }
 
   ?>

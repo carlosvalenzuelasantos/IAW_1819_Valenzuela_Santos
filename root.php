@@ -52,13 +52,19 @@ if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
             <tr>
               <td><a href="anade_pelicula.php">Añade una Pelicula</a></td>
             </tr>
-            <tr>
-              <td><a href="anade_actores.php">Añade un Actor</a></td>
-            </tr>
+
             <tr>
               <td><a href="administrar_peliculas.php">Administrar Pelicula</a></td>
             </tr>
 
+            <tr>
+              <td><a href="anade_actores.php">Añade un Actor</a></td>
+            </tr>
+
+            <tr>
+              <td><a href="administrar_actores.php">Administrar un Actor</a></td>
+            </tr>
+            
             <tr>
               <td><a href="administrar_usuarios.php">Administrar Usuarios</a></td>
             </tr>

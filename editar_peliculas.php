@@ -53,6 +53,7 @@
             }
 
             $query="SELECT * from peliculas where id_pelicula='".$_GET["id"]."'";
+        
 
             if ($result = $connection->query($query))  {
 
@@ -104,7 +105,7 @@
           $id_pelicula = $_POST["id_pelicula"];
           $nombre = $_POST["nombre"];
           $fecha = $_POST["fecha"];
-          $director = md5($_POST["director"]);
+          $director = $_POST["director"];
           $genero = $_POST["genero"];
 
           $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
@@ -115,18 +116,20 @@
               exit();
           }
 
-          $query="update peliculas set id_pelicula='$id_pelicula',
-          nombre='$nombre', fecha='$fecha', director='$director', genero='$genero',
+          $query="UPDATE peliculas set id_pelicula='$id_pelicula',
+          nombre='$nombre', fecha='$fecha', director='$director', genero='$genero'
           WHERE id_pelicula='$id_pelicula'";
 
+
           if ($result = $connection->query($query)) {
-            echo "Pelicula Actualizada <br>";
+            header('Location: administrar_peliculas.php');
+           
           } else {
             echo "Error al actualizar los datos <br>";
           }
 
           ?>
          <?php endif ?>
-        <a href='editapelcula.php'><input type='button' style='color: #FF0000' value='Volver'></a>
+        
 
   </div>
