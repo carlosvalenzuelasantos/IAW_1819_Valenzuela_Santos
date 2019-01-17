@@ -43,7 +43,7 @@ echo $usuario;
  }
 
   ?>
-null
+
   <div class ="container">
         <div class ="titulo">
            <div class="row justify-content-center">
