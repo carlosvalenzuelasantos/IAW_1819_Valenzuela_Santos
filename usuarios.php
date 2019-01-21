@@ -63,16 +63,19 @@ if (!isset($_SESSION["nombre"])) {
                       <th>Fecha</th>
                       <th>Director</th>
                       <th>Genero</th>
+                      <th>Descripcion</th>
+
 
                   </thead><br>
 
                     <?php
                         while($obj = $result->fetch_object()) {
                             echo "<tr>";
-                              echo "<td><a href='descripcionpelicula.php?id=".$obj->nombre."'>".$obj->nombre."</a></td>";
+                              echo "<td>".$obj->nombre."</a></td>";
                               echo "<td>".$obj->fecha."</td>";
                               echo "<td>".$obj->director."</td>";
                               echo "<td>".$obj->genero."</td>";
+                              echo "<td><a href='descripcion_pelicula.php?id=".$obj->nombre."'><img src='images/link.png' height='25' width='25'/></td>";
 
 
                             echo "</tr>";

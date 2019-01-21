@@ -67,8 +67,8 @@
                     echo "<td>".$obj->id_usuario."</td>";
                     echo "<td>".$obj->direccion."</td>";
                     echo "<td>".$obj->email."</td>";
-                    echo "<td><a href='borrar_usuarios.php?id=".$obj ->id_usuario."'><img src='img/delete.png' height='25' width='25'/></a></td>";
-                    echo "<td><a href='editar_usuarios.php?id=".$obj ->id_usuario."'><img src='img/editar.png' height='25' width='25'/></a></td>";
+                    echo "<td><a href='borrar_usuarios.php?id=".$obj ->id_usuario."'><img src='images/delete.png' height='25' width='25'/></a></td>";
+                    echo "<td><a href='editar_usuarios.php?id=".$obj ->id_usuario."'><img src='images/editar.png' height='25' width='25'/></a></td>";
 
                   echo "</tr>";
 

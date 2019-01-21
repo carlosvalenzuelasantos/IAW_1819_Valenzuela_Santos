@@ -70,7 +70,7 @@ if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
             </tr>
 
             <tr>
-              <td><a href="editar_c•••••omentarios.php">Edita Comentarios</td>
+              <td><a href="administrar_comentarios.php">Borra Comentarios</td>
             </tr>
 
             <tr>

@@ -43,6 +43,8 @@ if (!isset($_POST["nombre"])) : ?>
         <span>Fecha:</span><input type="date" name="fecha" required><br>
         <span>Director:</span><input type="text" name="director" required><br>
         <span>Genero:</span><input type="text" name="genero" required><br>
+        <span>Enlace:</span><input type="text" name="genero" required><br>
+
         <span><input type="submit" value="Insertar Pelicula">
       </fieldset>
     </form>
@@ -60,8 +62,9 @@ if (!isset($_POST["nombre"])) : ?>
    $fecha=$_POST['fecha'];
    $director=$_POST['director'];
    $genero=$_POST['genero'];
+   $genero=$_POST['link'];
 
-   $consulta= "INSERT INTO peliculas VALUES(NULL, '$nombre','$fecha', '$director', '$genero')";
+   $consulta= "INSERT INTO peliculas VALUES(NULL, '$nombre','$fecha', '$director', '$genero', '$link')";
 
    $result = $connection->query($consulta);
 

@@ -71,6 +71,7 @@
               $fecha = $obj->fecha;
               $director = $obj->director;
               $genero = $obj->genero;
+              $link = $obj->link;
               
 
             } else {
@@ -90,6 +91,7 @@
               <span>Fecha:</span><input value='<?php echo $fecha; ?>'type="text" name="fecha" required><br>
               <span>Director:</span><input value='<?php echo $director; ?>' type="text" name="director" required><br>
               <span>Genero:</span><input value='<?php echo $genero; ?>'type="text" name="genero" required><br>
+              <span>Enlace:</span><input value='<?php echo $link; ?>'type="text" name="link"><br>
               
               <input type="hidden" name="id_pelicula" value='<?php echo $id_pelicula; ?>'>
               <p><input type="submit" value="Actualizar"></p>
@@ -107,6 +109,7 @@
           $fecha = $_POST["fecha"];
           $director = $_POST["director"];
           $genero = $_POST["genero"];
+          $link = $_POST["link"];
 
           $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
           $connection->set_charset("uft8");
@@ -117,7 +120,7 @@
           }
 
           $query="UPDATE peliculas set id_pelicula='$id_pelicula',
-          nombre='$nombre', fecha='$fecha', director='$director', genero='$genero'
+          nombre='$nombre', fecha='$fecha', director='$director', genero='$genero', link='$link'
           WHERE id_pelicula='$id_pelicula'";
 
 

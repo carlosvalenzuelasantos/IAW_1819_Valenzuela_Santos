@@ -27,7 +27,7 @@
               <h1 class="text-white display-2">Peliculas.com</h1>
            </div>
            <div class="row justify-content-center">
-              <h2 class="text-white">Administrar Actores</h2>
+              <h2 class="text-white">Administrar Comentarios</h2>
            </div>
         </div>
 
@@ -41,7 +41,7 @@
               exit();
           }
 
-          $query="SELECT * from actores";
+          $query="SELECT * from comentar";
 
           if ($result = $connection->query($query)) {
 
@@ -49,10 +49,10 @@
               <table style="border:1px solid black">
                 <thead>
                   <tr>
-                    <th>ID Actore</th>
-                    <th>Nombre</th>
-                    <th>Nacionalidad</th>
-                    <th>Fecha de Nacimiento</th>
+                    <th>Valoracion</th>
+                    <th>Comentarios</th>
+                    <th>ID Pelicula</th>
+                    <th>ID Usuario</th>
 
                 </thead><br>
 
@@ -60,13 +60,13 @@
 
               while($obj = $result->fetch_object()) {
                   echo "<tr>";
-                    echo "<td>".$obj->id_actor."</td>";
-                    echo "<td>".$obj->nombre."</td>";
-                    echo "<td>".$obj->nacionalidad."</td>";
-                    echo "<td>".$obj->fecha_nacimiento."</td>";
+                    echo "<td>".$obj->valoracion."</td>";
+                    echo "<td>".$obj->comentarios."</td>";
+                    echo "<td>".$obj->id_pelicula."</td>";
+                    echo "<td>".$obj->id_usuario."</td>";
                     
-                    echo "<td><a href='borrar_actores.php?id=".$obj->id_actor."'><img src='images/delete.png' height='25' width='25'/></a></td>";
-                    echo "<td><a href='editar_actores.php?id=".$obj->id_actor."'><img src='images/editar.png' height='25' width='25'/></a></td>";
+                    echo "<td><a href='borrar_comentarios.php?id=".$obj->comentarios."'><img src='images/delete.png' height='25' width='25'/></a></td>";
+                    
 
                   echo "</tr>";
 

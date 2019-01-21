@@ -36,7 +36,7 @@ if (isset($_POST["nombre"])) {
 
 echo $usuario;
  if ($result =$connection->query($usuario)) {
-    header("Location: bienvenido.php");
+    header("Location: inicio.php");
   } else {
     echo "<h1>Error en el registro</h1>";
   }

@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Editar Comentarios</title>
+    <title>Administrar Peliculas</title>
   </head>
   <body>
 
@@ -28,7 +28,7 @@
             <h1 class="text-white display-2">Peliculas.com</h1>
            </div>
            <div class="row justify-content-center">
-           <h2 class="text-white">Administrar Usuarios</h2>
+           <h2 class="text-white">Descripcion Pelicula</h2>
            </div>
         </div>
 
@@ -42,7 +42,7 @@
               exit();
           }
 
-          $query="SELECT * from comentar";
+          $query="SELECT * from peliculas WHERE nombre='".$_GET["id"]."'" ;
 
           if ($result = $connection->query($query)) {
 
@@ -50,11 +50,12 @@
               <table style="border:1px solid black">
                 <thead>
                   <tr>
-                    <th>Valoracion</th>
-                    <th>Comentarios</th>
-                    <th>Id_Pelicula</th>
-                    <th>Id_Usuario</th>
-                    
+                    <th>ID Pelicula</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Direccion</th>
+                    <th>Genero</th>
+                    <td>Caratula</td>
 
                 </thead><br>
 
@@ -62,13 +63,14 @@
 
               while($obj = $result->fetch_object()) {
                   echo "<tr>";
-                    echo "<td>".$obj->valoracion."</td>";
-                    echo "<td>".$obj->comentarios."</td>";
                     echo "<td>".$obj->id_pelicula."</td>";
-                    echo "<td>".$obj->id_usuario."</td>";
+                    echo "<td>".$obj->nombre."</td>";
+                    echo "<td>".$obj->fecha."</td>";
+                    echo "<td>".$obj->director."</td>";
+                    echo "<td>".$obj->genero."</td>";
                 
-                    echo "<td><a href='borrar_comentarios.php?id=".$obj ->comentarios."'><img src='img/delete.png' height='25' width='25'/></a></td>";
-                    
+
+                    echo "<td><a href='".$obj->link."'><img src='images/star_wars.jpg' height='100' width='100'/></a></td>";
 
                   echo "</tr>";
 
