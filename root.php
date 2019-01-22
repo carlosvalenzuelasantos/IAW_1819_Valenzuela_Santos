@@ -70,7 +70,7 @@ if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
             </tr>
 
             <tr>
-              <td><a href="administrar_comentarios.php">Borra Comentarios</td>
+              <td><a href="administrar_comentarios.php">Administrar Comentarios</td>
             </tr>
 
             <tr>
@@ -79,11 +79,11 @@ if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
 
             <tr>
               <td>
-              <p><input type="radio" name="estrellas">5 Estrellas</p>
-              <p><input type="radio" name="estrellas">4 Estrellas</p>
-              <p><input type="radio" name="estrellas">3 Estrellas</p>
-              <p><input type="radio" name="estrellas">2 Estrellas</p>
-              <p><input type="radio" name="estrellas">1 Estrellas</p>
+              <p><input type="radio" name="valoracion" value="5">5 Estrellas</p>
+              <p><input type="radio" name="valoracion" value="4">4 Estrellas</p>
+              <p><input type="radio" name="valoracion" value="3">3 Estrellas</p>
+              <p><input type="radio" name="valoracion" value="2">2 Estrellas</p>
+              <p><input type="radio" name="valoracion" value="1">1 Estrellas</p>
               <input type="submit" value="Ir a Pelicula">
               </td>
             </tr>

@@ -1,4 +1,7 @@
+<?php session_start(); 
 
+
+?>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -25,10 +28,10 @@
   <div class ="container">
         <div class ="titulo">
            <div class="row justify-content-center">
-            <h1 class="text-white display-2">Peliculas.com</h1>
+              <h1 class="text-white display-2">Peliculas.com</h1>
            </div>
            <div class="row justify-content-center">
-           <h2 class="text-white">Descripcion Pelicula</h2>
+              <h2 class="text-white">Descripcion Pelicula</h2>
            </div>
         </div>
 
@@ -42,10 +45,12 @@
               exit();
           }
 
-          $query="SELECT * from peliculas WHERE nombre='".$_GET["id"]."'" ;
+          $query="SELECT * from peliculas WHERE id_pelicula='".$_GET["id"]."'" ;
+
 
           if ($result = $connection->query($query)) {
-
+          
+          
           ?>
               <table style="border:1px solid black">
                 <thead>
@@ -56,6 +61,7 @@
                     <th>Direccion</th>
                     <th>Genero</th>
                     <td>Caratula</td>
+                  </tr>
 
                 </thead><br>
 
@@ -69,7 +75,6 @@
                     echo "<td>".$obj->director."</td>";
                     echo "<td>".$obj->genero."</td>";
                 
-
                     echo "<td><a href='".$obj->link."'><img src='images/star_wars.jpg' height='100' width='100'/></a></td>";
 
                   echo "</tr>";
@@ -83,6 +88,61 @@
           }
 
           ?>
+
+        <?php
+
+          if (!isset($_POST["comentarios"])) : ?>
+              <form method="post">
+                <fieldset>
+                  <legend>Valora y Comenta</legend>
+                  <span>Comentarios:</span><textarea name="comentarios" required></textarea><br>
+                  <span>Valoracion:</span>
+                        <p><input type="radio" name="valoracion" value="5">5 Estrellas</p>
+                        <p><input type="radio" name="valoracion" value="4">4 Estrellas</p>
+                        <p><input type="radio" name="valoracion" value="3">3 Estrellas</p>
+                        <p><input type="radio" name="valoracion" value="2">2 Estrellas</p>
+                        <p><input type="radio" name="valoracion" value="1">1 Estrellas</p>
+                        <input type="submit" value="Agregar Comentario y Valoracion">
+                  
+        
+                 <br>
+        
+        </fieldset>
+      </form>
+
+  <?php else: ?>
+
+  <?php
+      $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
+       if ($connection->connect_errno) {
+        printf("Connection failed: %s\n", $connection->connect_error);
+        exit();
+        }
+
+   
+   $valoracion=$_POST['valoracion'];
+   $comentarios=$_POST['comentarios'];
+   $id_pelicula=$_GET['id'];
+   $id_usuario=$_SESSION['id_usuario'];
+
+   
+
+   $consulta1= "INSERT INTO comentario VALUES($valoracion,'$comentarios',$id_pelicula,$id_usuario, NULL)";
+
+    echo $consulta1;
+
+   $result = $connection->query($consulta1);
+
+   if (!$result) {
+      echo "Query Error <br>";
+   } else {
+    echo "Comentario Añadido Correctamente <br>";
+    echo "<a href='usuarios.php'><input type='button' style='color: #FF0000' value='Volver Inicio'></a>";
+   }
+
+  ?>
+
+<?php endif; ?>
 
 
 

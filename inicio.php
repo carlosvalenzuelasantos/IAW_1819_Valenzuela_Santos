@@ -40,6 +40,7 @@ if (isset($_POST["email"])) {
             $obj = $result->fetch_object();
             $_SESSION["nombre"] = $obj->nombre;
             $_SESSION["apellidos"] = $obj->apellidos;
+            $_SESSION["id_usuario"] = $obj->id_usuario;
 
             if ($_POST["email"] == "root@root.com") {
                 header("Location: root.php");

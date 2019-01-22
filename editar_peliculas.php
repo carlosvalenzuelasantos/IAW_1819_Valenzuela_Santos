@@ -133,6 +133,13 @@
 
           ?>
          <?php endif ?>
+
+         
+  
+       <form action='administrar_peliculas.php'><input type='submit' style='color: #FF0000' value='Volver'></form></td>
+       
+     
+  
         
 
   </div>

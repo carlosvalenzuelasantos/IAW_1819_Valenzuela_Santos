@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Editar Coment</title>
+    <title>Editar Comentarios</title>
   </head>
   <body>
 
@@ -78,7 +78,7 @@
 
           ?>
 
-          <?php if (!isset($_POST["valoracion"])) : ?>
+          <?php if (!isset($_POST["id_usuario"])) : ?>
 
           <form method="post">
             <fieldset>
@@ -112,8 +112,10 @@
               exit();
           }
 
-          $query="update comentar set valoracion='$valoracion',
-          comentarios='$comentarios', id_pelicula='$id_pelicula', id_usuario='$id', WHERE id_usuario='$id'";
+          $query="UPDATE comentar set valoracion='$valoracion',
+          comentarios='$comentarios', id_pelicula='$id_pelicula', id_usuario='$id' WHERE id_usuario='$id'";
+
+          echo $query;
 
           if ($result = $connection->query($query)) {
             echo "Usuario actualizado <br>";
@@ -123,6 +125,6 @@
 
           ?>
          <?php endif ?>
-        <a href='editarcomentarios.php'><input type='button' style='color: #FF0000' value='Volver'></a>
+        <a href='administrar_comentarios.php'><input type='button' style='color: #FF0000' value='Volver'></a>
 
   </div>

@@ -43,10 +43,13 @@ if (!isset($_POST["nombre"])) : ?>
         <span>Fecha:</span><input type="date" name="fecha" required><br>
         <span>Director:</span><input type="text" name="director" required><br>
         <span>Genero:</span><input type="text" name="genero" required><br>
-        <span>Enlace:</span><input type="text" name="genero" required><br>
+        <span>Enlace:</span><input type="text" name="link" required><br>
 
-        <span><input type="submit" value="Insertar Pelicula">
+        
       </fieldset>
+      <input type="submit" value="Insertar Pelicula">
+      
+      <a href='root.php'><input type='button' style='color: #FF0000' value='Volver a Inicio'></a>
     </form>
 </div>
   <?php else: ?>
@@ -62,7 +65,7 @@ if (!isset($_POST["nombre"])) : ?>
    $fecha=$_POST['fecha'];
    $director=$_POST['director'];
    $genero=$_POST['genero'];
-   $genero=$_POST['link'];
+   $link=$_POST['link'];
 
    $consulta= "INSERT INTO peliculas VALUES(NULL, '$nombre','$fecha', '$director', '$genero', '$link')";
 
@@ -72,17 +75,13 @@ if (!isset($_POST["nombre"])) : ?>
       echo "Query Error <br>";
    } else {
        echo "Nueva Pelicula Añadida, Gracias<br>";
+       echo "<a href='anade_pelicula.php'><input type='button' style='color: #FF0000' value='Volver Añadir Pelicula'></a>";
+       echo "<a href='root.php'><input type='button' style='color: #FF0000' value='Volver al Inicio'></a>";
    }
 
   ?>
 
 <?php endif; ?>
-
-<a href='anade_pelicula.php'><input type='button' style='color: #FF0000' value='Volver a añadir Pelicula'></a>
-<a href='root.php'><input type='button' style='color: #FF0000' value='Volver a Inicio'></a>
-
-</div>
-
 
 
 </body>

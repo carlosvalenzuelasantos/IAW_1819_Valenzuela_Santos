@@ -72,8 +72,12 @@
                     echo "<td><a href='".$obj->link."'><img src='images/link.png' height='25' width='25'/></a></td>";
                     echo "<td><a href='borrar_peliculas.php?id=".$obj->id_pelicula."'><img src='images/delete.png' height='25' width='25'/></a></td>";
                     echo "<td><a href='editar_peliculas.php?id=".$obj->id_pelicula."'><img src='images/editar.png' height='25' width='25'/></a></td>";
+                    
+                    
 
                   echo "</tr>";
+
+
 
               }
 
@@ -87,8 +91,18 @@
 
 
 
-  </div>
+</table>
 
+<table>
+<tr>
+  
+     <td><form action='root.php'><input type='submit' style='color: #FF0000' value='Volver'></form></td>
+</tr>
+</table>
+
+
+
+</div>
 </body>
 
 

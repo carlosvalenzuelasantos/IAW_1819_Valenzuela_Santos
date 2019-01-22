@@ -82,11 +82,18 @@
 
 
 
-  </div>
   
-  <div>
-     <a href='root.php'><input type='button' style='color: #FF0000' value='Volver'></a>
-  </div>
+  </table>
+  
+  <table>
+     <tr>
+  
+       <td><form action='root.php'><input type='submit' style='color: #FF0000' value='Volver'></form></td>
+       
+     </tr>
+  </table>
+
+</div>
 
 </body>
 

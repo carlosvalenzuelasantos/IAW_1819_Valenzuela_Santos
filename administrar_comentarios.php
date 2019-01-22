@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Administrar Actores</title>
+    <title>Administrar Comentarios</title>
   </head>
   <body>
 
@@ -41,7 +41,7 @@
               exit();
           }
 
-          $query="SELECT * from comentar";
+          $query="SELECT * from comentario";
 
           if ($result = $connection->query($query)) {
 
@@ -66,7 +66,7 @@
                     echo "<td>".$obj->id_usuario."</td>";
                     
                     echo "<td><a href='borrar_comentarios.php?id=".$obj->comentarios."'><img src='images/delete.png' height='25' width='25'/></a></td>";
-                    
+                    echo "<td><a href='editar_comentarios.php?id=".$obj->id_usuario."'><img src='images/editar.png' height='25' width='25'/></a></td>";
 
                   echo "</tr>";
 
@@ -82,11 +82,16 @@
 
 
 
-  </div>
+</table>
   
-  <div>
-     <a href='root.php'><input type='button' style='color: #FF0000' value='Volver'></a>
-  </div>
+  <table>
+<tr>
+  
+     <td><form action='root.php'><input type='submit' style='color: #FF0000' value='Volver'></form></td>
+</tr>
+</table>
+
+</div>
 
 </body>
 

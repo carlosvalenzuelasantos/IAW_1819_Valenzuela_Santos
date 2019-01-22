@@ -42,14 +42,14 @@
 
         $id=$_GET['id'];
         echo $id;
-        $consulta= "DELETE FROM comentar WHERE comentarios='$id'";
+        $consulta= "DELETE FROM comentario WHERE comentarios='$id'";
 
         $result = $connection->query($consulta);
 
         if (!$result) {
         echo "Query Error <br>";
         } else {
-          header('Location: editar_comentarios.php');;
+          header('Location: administrar_comentarios.php');;
         }
 
         ?>
