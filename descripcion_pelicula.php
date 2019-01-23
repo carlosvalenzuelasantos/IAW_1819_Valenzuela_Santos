@@ -12,7 +12,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Administrar Peliculas</title>
+    <title>Descripcion Peliculas</title>
   </head>
   <body>
 
@@ -129,7 +129,7 @@
 
    $consulta1= "INSERT INTO comentario VALUES($valoracion,'$comentarios',$id_pelicula,$id_usuario, NULL)";
 
-    echo $consulta1;
+    
 
    $result = $connection->query($consulta1);
 
