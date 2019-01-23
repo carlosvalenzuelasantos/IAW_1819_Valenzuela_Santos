@@ -129,15 +129,14 @@
 
    $consulta1= "INSERT INTO comentario VALUES($valoracion,'$comentarios',$id_pelicula,$id_usuario, NULL)";
 
-    
-
+  
    $result = $connection->query($consulta1);
 
    if (!$result) {
       echo "Query Error <br>";
    } else {
     echo "Comentario Añadido Correctamente <br>";
-    echo "<a href='usuarios.php'><input type='button' style='color: #FF0000' value='Volver Inicio'></a>";
+    echo "<a href='ver_comentarios.php'><input type='button' style='color: #FF0000' value='Ver Comentarios'></a>";
    }
 
   ?>
