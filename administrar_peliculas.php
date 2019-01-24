@@ -47,27 +47,6 @@
           if ($result = $connection->query($query)) {
 
           ?>
-
-          <?php
-
-          $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
-            $connection->set_charset("uft8");
-
-            if ($connection->connect_errno) {
-                printf("Connection failed: %s\n", $connection->connect_error);
-                exit();
-            }
-
-            $id_pelicula=$_GET['id'];
-            $obj->actor='a.nombre';
-          
-            $query2="SELECT a.nombre from actores a
-            join peliculas p on a.id_actor = p.id_pelicula
-            where p.id_pelicula='$id'";
-
-            if ($result = $connection->query($query2)) {
-
-            ?>
               <table style="border:1px solid black">
                 <thead>
                   <tr>
@@ -76,8 +55,11 @@
                     <th>Fecha</th>
                     <th>Direccion</th>
                     <th>Genero</th>
-                    <th>Actores</th>
                     <th>Enlace</th>
+                
+                    <th>Borrar</th>
+                    <th>Editar</th>
+                    
 
                 </thead><br>
 
@@ -90,7 +72,6 @@
                     echo "<td>".$obj->fecha."</td>";
                     echo "<td>".$obj->director."</td>";
                     echo "<td>".$obj->genero."</td>";
-                    echo "<td>".$obj->actor."</td>";
                     
                     echo "<td><a href='".$obj->link."'><img src='images/link.png' height='25' width='25'/></a></td>";
                     echo "<td><a href='borrar_peliculas.php?id=".$obj->id_pelicula."'><img src='images/delete.png' height='25' width='25'/></a></td>";
