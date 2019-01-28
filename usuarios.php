@@ -53,7 +53,14 @@ if (!isset($_SESSION["nombre"])) {
                 printf("Connection failed: %s\n", $connection->connect_error);
                 exit();
             }
+
+            
+           
+
             $query="SELECT id_pelicula, nombre, fecha, director, genero from peliculas";
+
+        
+
             if ($result = $connection->query($query)) {
             ?>
                 <table style="border:1px solid black">
@@ -64,6 +71,7 @@ if (!isset($_SESSION["nombre"])) {
                       <th>Fecha</th>
                       <th>Director</th>
                       <th>Genero</th>
+                      
                       <th>Descripcion</th>
 
 
@@ -77,6 +85,7 @@ if (!isset($_SESSION["nombre"])) {
                               echo "<td>".$obj->fecha."</td>";
                               echo "<td>".$obj->director."</td>";
                               echo "<td>".$obj->genero."</td>";
+                             
                               echo "<td><a href='descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
 
 

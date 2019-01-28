@@ -44,11 +44,17 @@
               printf("Connection failed: %s\n", $connection->connect_error);
               exit();
           }
+           
+          
+          
+          $query1="SELECT * from peliculas WHERE id_pelicula='".$_GET["id"]."'" ;
+        
+        
+          $query2="SELECT a.nombre as nombreactor from peliculas p join participar pa on p.id_pelicula = pa.id_pelicula
+                      join actores a on a.id_actor=pa.id_actor where p.id_pelicula='".$_GET["id"]."'"; 
 
-          $query="SELECT * from peliculas WHERE id_pelicula='".$_GET["id"]."'" ;
 
-
-          if ($result = $connection->query($query)) {
+          if ($result = $connection->query($query1)) {
           
           
           ?>
@@ -60,6 +66,8 @@
                     <th>Fecha</th>
                     <th>Direccion</th>
                     <th>Genero</th>
+                    <th>Actores</th>
+
                     <td>Caratula</td>
                   </tr>
 
@@ -68,16 +76,33 @@
           <?php
 
               while($obj = $result->fetch_object()) {
-                  echo "<tr>";
-                    echo "<td>".$obj->id_pelicula."</td>";
-                    echo "<td>".$obj->nombre."</td>";
-                    echo "<td>".$obj->fecha."</td>";
-                    echo "<td>".$obj->director."</td>";
-                    echo "<td>".$obj->genero."</td>";
-                
-                    echo "<td><a href='".$obj->link."'><img src='images/star_wars.jpg' height='100' width='100'/></a></td>";
 
-                  echo "</tr>";
+                $link = $obj->link;
+  
+                echo "<tr>";
+                      echo "<td>".$obj->id_pelicula."</td>";
+                      echo "<td>".$obj->nombre."</td>";
+                      echo "<td>".$obj->fecha."</td>";
+                      echo "<td>".$obj->director."</td>";
+                      echo "<td>".$obj->genero."</td>";
+                      
+                      echo "<td>";
+
+                            if ($result=$connection->query($query2)) {
+
+                              while($obj = $result->fetch_object()) {
+                                echo "<p>".$obj->nombreactor."</p>";
+                              }
+                            }                    
+                      
+                      echo "</td>";
+
+                      echo "<td><a href='$link' target='_blank'>
+                      <img src='images/star_wars.jpg' height='100' width='100'/></a></td>";
+                      
+                
+
+                 echo "</tr>";
 
               }
 
@@ -87,7 +112,7 @@
 
           }
 
-          ?>
+?>
 
         <?php
 
@@ -128,6 +153,8 @@
    
 
    $consulta1= "INSERT INTO comentario VALUES($valoracion,'$comentarios',$id_pelicula,$id_usuario, NULL)";
+   
+   
 
   
    $result = $connection->query($consulta1);
