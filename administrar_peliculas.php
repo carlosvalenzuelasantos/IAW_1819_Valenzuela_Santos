@@ -73,7 +73,7 @@
                     echo "<td>".$obj->director."</td>";
                     echo "<td>".$obj->genero."</td>";
                     
-                    echo "<td><a href='".$obj->link."'><img src='images/link.png' height='25' width='25'/></a></td>";
+                    echo "<td><a href='".$obj->link."' target='_blank'><img src='images/link.png' height='25' width='25'/></a></td>";
                     echo "<td><a href='borrar_peliculas.php?id=".$obj->id_pelicula."'><img src='images/delete.png' height='25' width='25'/></a></td>";
                     echo "<td><a href='editar_peliculas.php?id=".$obj->id_pelicula."'><img src='images/editar.png' height='25' width='25'/></a></td>";
                     

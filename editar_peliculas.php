@@ -51,8 +51,17 @@
                 printf("Connection failed: %s\n", $connection->connect_error);
                 exit();
             }
+            
 
             $query="SELECT * from peliculas where id_pelicula='".$_GET["id"]."'";
+
+
+            $query2="SELECT nombre, id_actor from actores";
+
+
+            $query3="SELECT id_actor from participar where id_pelicula=".$_GET["id"]."";
+
+            echo $query3;
         
 
             if ($result = $connection->query($query))  {
@@ -65,13 +74,13 @@
               }
 
 
-
               $id_pelicula = $obj->id_pelicula;
               $nombre = $obj->nombre;
               $fecha = $obj->fecha;
               $director = $obj->director;
               $genero = $obj->genero;
               $link = $obj->link;
+
               
 
             } else {
@@ -92,6 +101,35 @@
               <span>Director:</span><input value='<?php echo $director; ?>' type="text" name="director" required><br>
               <span>Genero:</span><input value='<?php echo $genero; ?>'type="text" name="genero" required><br>
               <span>Enlace:</span><input value='<?php echo $link; ?>'type="text" name="link"><br>
+              <span>Actores</span><select name="actores[]" multiple>'<?php  
+
+               
+              $v=[];
+                                      if ($result=$connection->query($query3)) {
+                                                                                              
+                                        while($obj = $result->fetch_object()) {
+
+                                        $v[]=$obj->id_actor;
+                                      
+                                        
+                                        }
+                                      }
+
+                                                  if ($result=$connection->query($query2)) {
+                                                        
+                                                    while($obj = $result->fetch_object()) {
+
+                                                      if (in_array($obj->id_actor,$v)) {
+                                                        echo "<option selected value=".$obj->id_actor."'>".$obj->nombre."</option>";
+                                                      } else {
+                                                        echo "<option value=".$obj->id_actor."'>".$obj->nombre."</option>";
+                                                      }                                           
+                                                         
+                                                     
+                                                    }
+                                                  }             
+                                                                
+                                                     ?>' </select><br>
               
               <input type="hidden" name="id_pelicula" value='<?php echo $id_pelicula; ?>'>
               <p><input type="submit" value="Actualizar"></p>
@@ -110,6 +148,8 @@
           $director = $_POST["director"];
           $genero = $_POST["genero"];
           $link = $_POST["link"];
+
+
 
           $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
           $connection->set_charset("uft8");
