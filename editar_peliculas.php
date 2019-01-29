@@ -101,10 +101,13 @@
               <span>Director:</span><input value='<?php echo $director; ?>' type="text" name="director" required><br>
               <span>Genero:</span><input value='<?php echo $genero; ?>'type="text" name="genero" required><br>
               <span>Enlace:</span><input value='<?php echo $link; ?>'type="text" name="link"><br>
-              <span>Actores</span><select name="actores[]" multiple>'<?php  
+              <span>Actores</span>
+                           <select name="actores[]" multiple>
+                              '<?php  
 
                
-              $v=[];
+                                     $v=[];
+
                                       if ($result=$connection->query($query3)) {
                                                                                               
                                         while($obj = $result->fetch_object()) {
@@ -129,7 +132,8 @@
                                                     }
                                                   }             
                                                                 
-                                                     ?>' </select><br>
+                                ?>' 
+                              </select><br>
               
               <input type="hidden" name="id_pelicula" value='<?php echo $id_pelicula; ?>'>
               <p><input type="submit" value="Actualizar"></p>
@@ -148,6 +152,7 @@
           $director = $_POST["director"];
           $genero = $_POST["genero"];
           $link = $_POST["link"];
+          $actores = $_POST["actores[]"];
 
 
 
@@ -162,6 +167,8 @@
           $query="UPDATE peliculas set id_pelicula='$id_pelicula',
           nombre='$nombre', fecha='$fecha', director='$director', genero='$genero', link='$link'
           WHERE id_pelicula='$id_pelicula'";
+
+          $query2="UPDATE participar set id_pelicula='$id_pelicula' WHERE id_pelicula='$id_pelicula'";
 
 
           if ($result = $connection->query($query)) {
