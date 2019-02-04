@@ -61,8 +61,7 @@
 
             $query3="SELECT id_actor from participar where id_pelicula=".$_GET["id"]."";
 
-            echo $query3;
-        
+            
 
             if ($result = $connection->query($query))  {
 
@@ -102,38 +101,38 @@
               <span>Genero:</span><input value='<?php echo $genero; ?>'type="text" name="genero" required><br>
               <span>Enlace:</span><input value='<?php echo $link; ?>'type="text" name="link"><br>
               <span>Actores</span>
-                           <select name="actores[]" multiple>
-                              '<?php  
+                      <select name="actores[]" multiple>
+                        '<?php  
 
-               
-                                     $v=[];
+          
+                                $v=[];
 
-                                      if ($result=$connection->query($query3)) {
-                                                                                              
+                                if ($result=$connection->query($query3)) {
+                                                                                        
+                                  while($obj = $result->fetch_object()) {
+
+                                  $v[]=$obj->id_actor;
+                                
+                                  
+                                  }
+                                }
+
+                                      if ($result=$connection->query($query2)) {
+                                            
                                         while($obj = $result->fetch_object()) {
 
-                                        $v[]=$obj->id_actor;
-                                      
-                                        
+                                          if (in_array($obj->id_actor,$v)) {
+                                            echo "<option selected value=".$obj->id_actor."'>".$obj->nombre."</option>";
+                                          } else {
+                                            echo "<option value=".$obj->id_actor."'>".$obj->nombre."</option>";
+                                          }                                           
+                                              
+                                          
                                         }
-                                      }
-
-                                                  if ($result=$connection->query($query2)) {
-                                                        
-                                                    while($obj = $result->fetch_object()) {
-
-                                                      if (in_array($obj->id_actor,$v)) {
-                                                        echo "<option selected value=".$obj->id_actor."'>".$obj->nombre."</option>";
-                                                      } else {
-                                                        echo "<option value=".$obj->id_actor."'>".$obj->nombre."</option>";
-                                                      }                                           
-                                                         
-                                                     
-                                                    }
-                                                  }             
-                                                                
-                                ?>' 
-                              </select><br>
+                                      }             
+                                                          
+                          ?>' 
+                        </select><br>
               
               <input type="hidden" name="id_pelicula" value='<?php echo $id_pelicula; ?>'>
               <p><input type="submit" value="Actualizar"></p>
@@ -152,7 +151,7 @@
           $director = $_POST["director"];
           $genero = $_POST["genero"];
           $link = $_POST["link"];
-          $actores = $_POST["actores[]"];
+          $actores = $_POST["actores"];
 
 
 
@@ -169,6 +168,23 @@
           WHERE id_pelicula='$id_pelicula'";
 
           $query2="UPDATE participar set id_pelicula='$id_pelicula' WHERE id_pelicula='$id_pelicula'";
+
+          $query3="DELETE id_actor from participar where id_pelicula='$id_pelicula'";
+
+          $query4="INSERT INTO participar (id_pelicula, id_actor) VALUES ('$id_pelicula', '$actores')";
+
+        
+          var_dump($actores);
+
+                        $v1=[];
+
+                         if ($result=$connection->query($query3)) {
+                           
+                          foreach ($actores as $k => $v1) {
+                            echo "Elemento $k---->".$v."<br> ";
+                          }
+                            
+                          }             
 
 
           if ($result = $connection->query($query)) {
