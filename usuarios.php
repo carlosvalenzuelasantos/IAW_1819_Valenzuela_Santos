@@ -57,7 +57,7 @@ if (!isset($_SESSION["nombre"])) {
             
            
 
-            $query="SELECT id_pelicula, nombre, fecha, director, genero from peliculas";
+            $query="SELECT * from peliculas";
 
         
 
@@ -68,10 +68,11 @@ if (!isset($_SESSION["nombre"])) {
                     <tr>
                       <th>ID Pelicula</th>
                       <th>Nombre</th>
-                      <th>Fecha</th>
+                     
                       <th>Director</th>
-                      <th>Genero</th>
-                      
+
+                      <th>Valoracion Media</th>
+                    
                       <th>Descripcion</th>
 
 
@@ -81,11 +82,23 @@ if (!isset($_SESSION["nombre"])) {
                         while($obj = $result->fetch_object()) {
                             echo "<tr>";
                               echo "<td>".$obj->id_pelicula."</a></td>";
-                              echo "<td>".$obj->nombre."</a></td>";
-                              echo "<td>".$obj->fecha."</td>";
+                              echo "<td>".$obj->nombre."</td>";     
                               echo "<td>".$obj->director."</td>";
-                              echo "<td>".$obj->genero."</td>";
-                             
+
+
+                
+                                    $query2="SELECT TRUNCATE(AVG (valoracion),2) as media from comentario where id_pelicula='$obj->id_pelicula'";
+
+                                    
+                                        if ($result1 = $connection->query($query2)) {
+
+                                          while($obj1 = $result1->fetch_object()) {
+                                          echo "<td>".$obj1->media."</td>";
+
+                                          }
+                                        }
+
+                              
                               echo "<td><a href='descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
 
 

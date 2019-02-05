@@ -169,22 +169,31 @@
 
           $query2="UPDATE participar set id_pelicula='$id_pelicula' WHERE id_pelicula='$id_pelicula'";
 
-          $query3="DELETE id_actor from participar where id_pelicula='$id_pelicula'";
+          $query3="DELETE from participar where id_pelicula='$id_pelicula'";
 
-          $query4="INSERT INTO participar (id_pelicula, id_actor) VALUES ('$id_pelicula', '$actores')";
+          //var_dump($actores);
+             
+          //echo $query3;
 
-        
-          var_dump($actores);
+                if ($result=$connection->query($query3)) {
+              
+                  
+                  for ($i=0;$i<sizeof($actores);$i++) {
 
-                        $v1=[];
+                  $query4="INSERT INTO participar (id_pelicula, id_actor) VALUES (".intval($id_pelicula).",".intval($actores[$i]).")";
+                  //echo $query4;
 
-                         if ($result=$connection->query($query3)) {
-                           
-                          foreach ($actores as $k => $v1) {
-                            echo "Elemento $k---->".$v."<br> ";
-                          }
-                            
-                          }             
+                  if ($result=$connection->query($query4)) {
+
+                              }
+
+                        }
+                
+                    
+                    }
+
+                    
+                      
 
 
           if ($result = $connection->query($query)) {
