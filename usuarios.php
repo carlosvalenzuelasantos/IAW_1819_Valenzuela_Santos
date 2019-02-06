@@ -81,24 +81,22 @@ if (!isset($_SESSION["nombre"])) {
                     <?php
                         while($obj = $result->fetch_object()) {
                             echo "<tr>";
+
                               echo "<td>".$obj->id_pelicula."</a></td>";
                               echo "<td>".$obj->nombre."</td>";     
                               echo "<td>".$obj->director."</td>";
 
-
                 
-                                    $query2="SELECT TRUNCATE(AVG (valoracion),2) as media from comentario where id_pelicula='$obj->id_pelicula'";
+                                $query2="SELECT TRUNCATE(AVG (valoracion),2) as media from comentario where id_pelicula='$obj->id_pelicula'";
+  
+                                    if ($result1 = $connection->query($query2)) {
 
-                                    
-                                        if ($result1 = $connection->query($query2)) {
+                                      while($obj1 = $result1->fetch_object()) {
+                                      echo "<td>".$obj1->media."</td>";
 
-                                          while($obj1 = $result1->fetch_object()) {
-                                          echo "<td>".$obj1->media."</td>";
-
-                                          }
-                                        }
-
-                              
+                                      }
+                                    }
+                 
                               echo "<td><a href='descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
 
 

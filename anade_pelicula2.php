@@ -44,50 +44,6 @@ if (!isset($_POST["nombre"])) : ?>
         <span>Director:</span><input type="text" name="director" required><br>
         <span>Genero:</span><input type="text" name="genero" required><br>
         <span>Enlace:</span><input type="text" name="link" required><br>
-        <span>Actores</span>
-
-                       <select name="actores[]" multiple>
-                        
-                         '<?php  
-
-                                $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
-                                $connection->set_charset("uft8");
-
-                                if ($connection->connect_errno) {
-                                    printf("Connection failed: %s\n", $connection->connect_error);
-                                    exit();
-                                }
-
-
-                                $query2="SELECT nombre, id_actor from actores";
-
-          
-                                $v=[];
-
-                                if ($result=$connection->query($query2)) {
-                                                                                        
-                                  while($obj = $result->fetch_object()) {
-
-                                  $v[]=$obj->id_actor;
-                                
-                                  
-                                  }
-                                }
-
-                                      if ($result=$connection->query($query2)) {
-                                            
-                                        while($obj = $result->fetch_object()) {
-
-                                         
-                                            echo "<option value=".$obj->id_actor."'>".$obj->nombre."</option>";
-                                                                                  
-                                              
-                                          
-                                        }
-                                      }             
-                                                          
-                          ?>' 
-                        </select><br>
 
         
       </fieldset>
@@ -110,25 +66,8 @@ if (!isset($_POST["nombre"])) : ?>
    $director=$_POST['director'];
    $genero=$_POST['genero'];
    $link=$_POST['link'];
-   $actores = $_POST["actores"];
 
    $consulta= "INSERT INTO peliculas VALUES(NULL, '$nombre','$fecha', '$director', '$genero', '$link')";
-
-   if ($result=$connection->query($consulta)) {
-              
-                  
-    for ($i=0;$i<sizeof($actores);$i++) {
-
-    $query4="INSERT INTO participar (id_pelicula, id_actor) VALUES (".intval($id_pelicula).",".intval($actores[$i]).")";
-    //echo $query4;
-
-    if ($result=$connection->query($query4)) {
-
-                }
-
-          }
-      }
-
 
    $result = $connection->query($consulta);
 
