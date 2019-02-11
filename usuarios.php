@@ -101,7 +101,7 @@ if (!isset($_SESSION["nombre"])) {
                      <td><form action='inicio.php'><input type='submit' style='color: #FF0000' value='Salir'></form></td>
 
                    </tr>
-  </table>
+               </table>
 
 
   </div>

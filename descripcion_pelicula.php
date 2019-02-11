@@ -128,12 +128,13 @@
                         <p><input type="radio" name="valoracion" value="2">2 Estrellas</p>
                         <p><input type="radio" name="valoracion" value="1">1 Estrellas</p>
                         <input type="submit" value="Agregar Comentario y Valoracion">
+                        <a href='usuarios.php'><input type='submit' style='color: #FF0000' value='Salir'></form>
                   
         
                  <br>
         
-        </fieldset>
-      </form>
+                </fieldset>
+               </form>
 
   <?php else: ?>
 
