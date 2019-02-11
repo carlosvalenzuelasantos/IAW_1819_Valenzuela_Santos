@@ -1,4 +1,5 @@
 <?php session_start(); 
+
 if (!isset($_SESSION["nombre"])) {
   session_destroy();
     header("Location: inicio.php");
@@ -38,23 +39,66 @@ if (!isset($_SESSION["nombre"])) {
                  <h2 class="text-white">Hola Usuario: <?php echo $_SESSION["nombre"]; echo " "; echo $_SESSION["apellidos"]; ?> </h2>
               </div>
 
-          </div>       
+          </div>
+     
+     
+       
     
 
         <?php
+
         $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
             $connection->set_charset("uft8");
             if ($connection->connect_errno) {
                 printf("Connection failed: %s\n", $connection->connect_error);
                 exit();
             }
-            
-           
+   
+
+            $query2="SELECT p.nombre as nombrepelicula, a.nombre as nombreactor from peliculas p
+                      join participar pa on p.id_pelicula = pa.id_pelicula
+                      join actores a on a.id_actor = pa.id_actor";
+
+            if (isset($_POST["buscador"]) && isset($_POST['opcion'])) {
+              
+                if ($_POST["opcion"]=="titulo" ) {
+                  $query="SELECT p.nombre as nombrepelicula, a.nombre as nombreactor from peliculas p
+                          join participar pa on p.id_pelicula = pa.id_pelicula
+                          join actores a on a.id_actor = pa.id_actor
+                          where pelicula like '%".$_POST["buscador"]."%'";
+
+
+                } elseif ($_POST["opcion"]=="actor") {
+                  $query="SELECT p.nombre as nombrepelicula, a.nombre as nombreactor from peliculas p
+                  join participar pa on p.id_pelicula = pa.id_pelicula
+                  join actores a on a.id_actor = pa.id_actor
+                  where actor like '%".$_POST["buscador"]."%'";
+                }
+
+                if ($result = $connection->query($query2)) {
+
+                  printf("<p>%d Peliculas Encontradas.</p>", $result->num_rows);
+                }
+        
             $query="SELECT * from peliculas";
 
-        
             if ($result = $connection->query($query)) {
+            
+              
+            
             ?>
+
+                <form class="" method="post">
+                
+                  <input type="text" name="buscador" required>
+                  <input type="submit" name="" value="Buscar">
+                  <button type="button" onclick="window.location.href='usuarios.php'"><span>Mostrar Todas</span></button>
+                  <input type="radio" name="opcion" value="nombre"><label> Nombre</label>
+                  <input type="radio" name="opcion" value="actor"><label> Actor</label><br><br>
+          
+          
+                </form>
+
                 <table style="border:1px solid black">
                   <thead>
                     <tr>
@@ -73,19 +117,25 @@ if (!isset($_SESSION["nombre"])) {
                     <?php
                         while($obj = $result->fetch_object()) {
                             echo "<tr>";
+
                               echo "<td>".$obj->id_pelicula."</a></td>";
                               echo "<td>".$obj->nombre."</td>";     
                               echo "<td>".$obj->director."</td>";
+
                 
                                 $query2="SELECT TRUNCATE(AVG (valoracion),2) as media from comentario where id_pelicula='$obj->id_pelicula'";
   
                                     if ($result1 = $connection->query($query2)) {
+
                                       while($obj1 = $result1->fetch_object()) {
                                       echo "<td>".$obj1->media."</td>";
+
                                       }
                                     }
                  
                               echo "<td><a href='descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
+
+
                             echo "</tr>";
                         }
                         $result->close();
@@ -103,9 +153,7 @@ if (!isset($_SESSION["nombre"])) {
                    </tr>
   </table>
 
-
   </div>
-
 
 
 </body>

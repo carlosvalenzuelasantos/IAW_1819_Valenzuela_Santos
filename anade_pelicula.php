@@ -119,7 +119,7 @@ if (!isset($_POST["nombre"])) : ?>
                   
     for ($i=0;$i<sizeof($actores);$i++) {
 
-    $query4="INSERT INTO participar (id_pelicula, id_actor) VALUES (".intval($id_pelicula).",".intval($actores[$i]).")";
+    $query4="INSERT INTO participar (id_pelicula, id_actor) VALUES ($connection->insert_id,".intval($actores[$i]).")";
     //echo $query4;
 
     if ($result=$connection->query($query4)) {
@@ -129,8 +129,6 @@ if (!isset($_POST["nombre"])) : ?>
           }
       }
 
-
-   $result = $connection->query($consulta);
 
    if (!$result) {
       echo "Query Error <br>";
