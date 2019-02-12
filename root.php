@@ -74,19 +74,16 @@ if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
             </tr>
 
             <tr>
-              <td>Peliculas por <br>Clasificacion</td>
-            </tr>
-
+              <td><a href="root_usuarios.php">Vista Previa</td>
+            </tr>         
+            
             <tr>
               <td>
-              <p><input type="radio" name="valoracion" value="5">5 Estrellas</p>
-              <p><input type="radio" name="valoracion" value="4">4 Estrellas</p>
-              <p><input type="radio" name="valoracion" value="3">3 Estrellas</p>
-              <p><input type="radio" name="valoracion" value="2">2 Estrellas</p>
-              <p><input type="radio" name="valoracion" value="1">1 Estrellas</p>
-              <input type="submit" value="Ir a Pelicula">
+            <a href='inicio.php'><input type='button' style='color: #FF0000' value='LOGOUT'></a>
+
               </td>
             </tr>
+            
 
           <tbody>
           </tbody>

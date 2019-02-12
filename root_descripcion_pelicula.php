@@ -147,8 +147,8 @@ if (!isset($_SESSION["nombre"])) {
 
                         <input type="submit" value="Agregar Comentario y Valoracion">
                         
-                        <a href='ver_comentarios.php'><input type='button' style='color: #FF0000' value='Ver todos los Comentarios'>
-                        <a href='usuarios.php'><input type='button' style='color: #FF0000' value='Volver Atras'></a>
+                        <a href='root_ver_comentarios.php'><input type='button' style='color: #FF0000' value='Ver todos los Comentarios'>
+                        <a href='root_usuarios.php'><input type='button' style='color: #FF0000' value='Volver Atras'></a>
                  <br>
         
                 </fieldset>
@@ -182,7 +182,7 @@ if (!isset($_SESSION["nombre"])) {
       echo "Query Error <br>";
    } else {
     echo "Comentario Añadido Correctamente <br>";
-    echo "<a href='ver_comentarios.php'><input type='button' style='color: #FF0000' value='Ver Comentarios'></a>";
+    echo "<a href='root_ver_comentarios.php'><input type='button' style='color: #FF0000' value='Ver Comentarios'></a>";
    }
 
   ?>

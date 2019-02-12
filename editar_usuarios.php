@@ -1,4 +1,13 @@
-<?php SESSION_start(); ?>
+<?php session_start(); 
+
+if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
+{
+  session_destroy();
+    header("Location: inicio.php");
+}
+ 
+?>
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
