@@ -55,28 +55,73 @@ if (!isset($_SESSION["nombre"])) {
                     if (isset($_POST["buscador"]) && isset($_POST['opcion'])) {
                       
                         if ($_POST["opcion"]=="nombre") {
-                          $query="SELECT p.nombre as nombrepelicula, a.nombre as nombreactor from peliculas p
+                          $query="SELECT p.nombre as nombrepelicula, a.nombre as nombreactor, id_pelicula from peliculas p
                                   join participar pa on p.id_pelicula = pa.id_pelicula
                                   join actores a on a.id_actor = pa.id_actor
                                   where p.nombre like '%".$_POST["buscador"]."%'";
 
 
                         } elseif ($_POST["opcion"]=="actor") {
-                          $query="SELECT p.nombre as nombrepelicula, a.nombre as nombreactor from peliculas p
+                          $query="SELECT p.nombre as nombrepelicula, a.nombre as nombreactor, id_pelicula from peliculas p
                           join participar pa on p.id_pelicula = pa.id_pelicula
                           join actores a on a.id_actor = pa.id_actor
                           where a.nombre like '%".$_POST["buscador"]."%'";
                         }
 
                         if ($result = $connection->query($query)) {
-
-                          printf("<p>%d Peliculas Encontradas.</p>", $result->num_rows);
-                        }
+            
+                            ?>
+                
+                              
+                
+                                <table style="border:1px solid black">
+                                  <thead>
+                                    <tr>
+                                      <th>ID Pelicula</th>
+                                      <th>Nombre</th>
+                                     
+                                      <th>Director</th>
+                
+                                      <th>Valoracion Media</th>
+                                    
+                                      <th>Descripcion</th>
+                
+                
+                                  </thead><br>
+                
+                                    <?php
+                                        while($obj = $result->fetch_object()) {
+                                            echo "<tr>";
+                
+                                              echo "<td>".$obj->nombrepelicula."</a></td>";
+                                              echo "<td>".$obj->nombreactor."</td>";     
+                                              
+                
+                  
+                                                $query2="SELECT TRUNCATE(AVG (valoracion),2) as media from comentario where id_pelicula='$obj->id_pelicula'";
+                  
+                                                    if ($result1 = $connection->query($query2)) {
+                
+                                                      while($obj1 = $result1->fetch_object()) {
+                                                      echo "<td>".$obj1->media."</td>";
+                
+                                                      }
+                                                    }
+                                 
+                                              echo "<td><a href='descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
+                
+                
+                                            echo "</tr>";
+                                        }
+                                        $result->close();
+                                        unset($obj);
+                                        unset($connection);
+                                    }
 
                       }  
                     
+                
                     
-                    echo $query;
 
 
                  ?>
