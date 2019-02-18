@@ -207,9 +207,9 @@ if (!isset($_SESSION["nombre"])) {
                 
                   <input type="text" name="buscador" required>
                   <input type="submit" name="" value="Buscar">
-                  <button type="button" onclick="window.location.href='usuarios2.php'"><span>Mostrar Todas</span></button>
-                  <input type="radio" name="opcion" value="nombre"><label> Nombre</label>
-                  <input type="radio" name="opcion" value="actor"><label> Actor</label><br><br>
+                  
+                  <input type="radio" name="opcion" value="nombre"><label> Por Nombre</label>
+                  <input type="radio" name="opcion" value="actor"><label> Por Actor</label><br><br>
           
           
                 </form>
@@ -248,27 +248,27 @@ if (!isset($_SESSION["nombre"])) {
                                       }
                                     }
                  
-                        inicio    echo "<td><a href='descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
+                              echo "<td><a href='root_descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
 
 
-                        inicio  echo "</tr>";
-                        inicio
-                        inicioesult->close();
-                        inicioset($obj);
-                        inicioset($connection);
+                            echo "</tr>";
+                        }
+                        $result->close();
+                        unset($obj);
+                        unset($connection);
                     }
 
                   }
                     ?>
-                </table>inicio
+                </table>
                 
                 <table>
                    <tr>
   
-                     <tdinicioform action='inicio.php'><input type='submit' style='color: #FF0000' value='Salir'></form></td>
-                     <tdinicioform action='root.php'><input type='submit' style='color: #FF0000' value='Volver Administrar'></form></td>
+                     <td><form action='inicio.php'><input type='submit' style='color: #FF0000' value='Salir'></form></td>
+                     <td><form action='root.php'><input type='submit' style='color: #FF0000' value='Volver a Administrar'></form></td>
 
-                   </tr>inicio
+                   </tr>
   </table>
 
   </div>
