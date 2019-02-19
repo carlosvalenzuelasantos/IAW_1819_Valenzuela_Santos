@@ -1,5 +1,5 @@
 .container {
-  background-image: url("images/star.jpg");
+  background-image: url("../images/star.jpg");
   background-size: 100% 100%;
   height:-webkit-fill-available;
 }

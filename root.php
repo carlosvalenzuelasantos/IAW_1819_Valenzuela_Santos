@@ -1,18 +1,13 @@
-<?php session_start(); 
-
-if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
-{
-  session_destroy();
-    header("Location: inicio.php");
-}
- 
+<?php 
+ include 'session_root.php';
 ?>
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="root.css">
+    <link rel="stylesheet" type="text/css" href="css/root.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -74,12 +69,12 @@ if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
             </tr>
 
             <tr>
-              <td><a href="root_usuarios.php">Vista Previa</td>
+              <td><a href="root_usuarios.php">Vista Usuario</td>
             </tr>         
             
             <tr>
               <td>
-            <a href='inicio.php'><input type='button' style='color: #FF0000' value='LOGOUT'></a>
+            <a href='cerrar_session.php'><input type='button' style='color: #FF0000' value='LOGOUT'></a>
 
               </td>
             </tr>

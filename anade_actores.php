@@ -1,11 +1,5 @@
-<?php session_start(); 
-
-if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
-{
-  session_destroy();
-    header("Location: inicio.php");
-}
- 
+<?php 
+ include 'session_root.php';
 ?>
 
 <html lang="en">
@@ -13,7 +7,8 @@ if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="root.css">
+    <link rel="stylesheet" type="text/css" href="css/root.css">
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -51,7 +46,8 @@ if (!isset($_POST["nombre"])) : ?>
         <span>Nombre:</span><input type="text" name="nombre" required><br>
         <span>Nacionalidad:</span><input type="text" name="nacionalidad" required><br>
         <span>Fecha de Nacimiento:</span><input type="date" name="fecha" required><br>
-        <span><input type="submit" value="Insertar Actor">
+        <span><input type="submit" value="Insertar Actor"><span>
+        <a href='root.php'><input type='button' style='color: #FF0000' value='Volver al Inicio'></a>
       </fieldset>
     </form>
 </div>

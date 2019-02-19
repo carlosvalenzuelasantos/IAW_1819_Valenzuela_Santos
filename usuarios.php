@@ -1,17 +1,13 @@
-<?php session_start(); 
-
-if (!isset($_SESSION["nombre"])) {
-  session_destroy();
-    header("Location: inicio.php");
-}
- 
+<?php 
+ include 'session_usuario.php';
 ?>
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="root.css">
+    <link rel="stylesheet" type="text/css" href="css/root.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -265,8 +261,9 @@ if (!isset($_SESSION["nombre"])) {
                 <table>
                    <tr>
   
-                     <td><form action='inicio.php'><input type='submit' style='color: #FF0000' value='Salir'></form></td>
-                     <td><form action='usuarios.php'><input type='submit' style='color: #FF0000' value='Volver a Buscar'></form></td>
+                     
+                    <td><form action='usuarios.php'><input type='submit' style='color: #FF0000' value='Volver a Buscar'></form></td>
+                    <td><form action='cerrar_session.php'><input type='submit' style='color: #FF0000' value='LOGOUT'></form></td>
 
                    </tr>
   </table>
