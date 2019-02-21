@@ -32,15 +32,10 @@
               <h1 class="jumbotron">Add a new product</h1>
               <form action="upload_image.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label>Product Code: </label>
-                  <input class="form-control" maxlength="6" size="6 "type="text" name="code" required placeholder="Insert the product code (up to 6 chars)"/>
-                  <label>Name: </label>
-                  <input class="form-control" type="text" name="name" required placeholder="Insert the product name" />
+                  
                   <label>Product Image: </label>
                   <input class="form-control" type="file" name="image" required />
-                  <label>Product Description: </label>
-                  <textarea rows="5" name="description" class="form-control">
-                  </textarea>
+                  
                 </div>
                 <input class="btn btn-primary" type="submit" value="Send" />
               </form>
@@ -56,7 +51,7 @@
                 $tmp_file = $_FILES['image']['tmp_name'];
 
                 //Dir where we are going to store the file
-                $target_dir = "img/";
+                $target_dir = "/var/www/html/proyecto/portada/";
 
                 //Full name of the file.
                 $target_file = strtolower($target_dir . basename($_FILES['image']['name']));
@@ -71,7 +66,7 @@
                 }
 
                 //Check the size of the file. Up to 2Mb
-                if ($_FILES['imagen']['size'] > (2048000)) {
+                if ($_FILES['image']['size'] > (2048000)) {
 			            $valid = false;
 			            echo 'Oops!  Your file\'s size is to large.';
 		            }
