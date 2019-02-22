@@ -85,6 +85,7 @@
               $director = $obj->director;
               $genero = $obj->genero;
               $link = $obj->link;
+              $portada = $obj->portada;
 
               
 
@@ -97,7 +98,7 @@
 
           <?php if (!isset($_POST["id_pelicula"])) : ?>
 
-          <form method="post">
+          <form method="post" enctype="multipart/form-data">
             <fieldset>
               <legend>Información de La Pelicula</legend>
               <span>ID Pelicula:</span><input value='<?php echo $id_pelicula; ?>'type="text" name="id_pelicula" required><br>
@@ -139,6 +140,10 @@
                                                           
                           ?>' 
                         </select><br>
+
+                        <span>Subir Imagen</span>  
+
+          <input class="form-control" type="file" name="image" required />
               
               <input type="hidden" name="id_pelicula" value='<?php echo $id_pelicula; ?>'>
               <p><input type="submit" value="Actualizar"></p>
@@ -146,6 +151,54 @@
           </form>
 
           <?php else: ?>
+
+          <?php
+
+                    //var_dump($_FILES);
+
+                    //Temp file. Where the uploaded file is stored temporary
+                    $tmp_file = $_FILES['image']['tmp_name'];
+
+                    //Dir where we are going to store the file
+                    $target_dir = "portada/";
+
+                    //Full name of the file.
+                    $target_file = strtolower($target_dir . basename($_FILES['image']['name']));
+
+                    //Can we upload the file
+                    $valid= true;
+
+                    //Check if the file already exists
+                    if (file_exists($target_file)) {
+                      echo "La portaada es repetida.";
+                      $valid = false;
+                    }
+
+                    //Check the size of the file. Up to 2Mb
+                    if ($_FILES['image']['size'] > (2048000)) {
+                      $valid = false;
+                      echo 'Oops!  Tu imagen supera los 2 mb.';
+                    }
+
+                    //Check the file extension: We need an image not any other different type of file
+                    $file_extension = pathinfo($target_file, PATHINFO_EXTENSION); // We get the entension
+                    if ($file_extension!="jpg" && $file_extension!="jpeg" && $file_extension!="png" && $file_extension!="gif") {
+                      $valid = false;
+                      echo "Only JPG, JPEG, PNG & GIF files are allowed";
+                    }
+
+
+                    if ($valid) {
+
+                      var_dump($target_file);
+                      //Put the file in its place
+                      move_uploaded_file($tmp_file, $target_file);
+
+                      echo "PRODUCT ADDED";
+
+
+                    }
+                    ?>
 
           <?php
 
@@ -158,6 +211,7 @@
           $genero = $_POST["genero"];
           $link = $_POST["link"];
           $actores = $_POST["actores"];
+          $portada = $target_file;
 
 
 
@@ -170,7 +224,7 @@
           }
 
           $query="UPDATE peliculas set id_pelicula='$id_pelicula',
-          nombre='$nombre', fecha='$fecha', director='$director', genero='$genero', link='$link'
+          nombre='$nombre', fecha='$fecha', director='$director', genero='$genero', link='$link', portada='$portada'
           WHERE id_pelicula='$id_pelicula'";
 
           $query2="UPDATE participar set id_pelicula='$id_pelicula' WHERE id_pelicula='$id_pelicula'";

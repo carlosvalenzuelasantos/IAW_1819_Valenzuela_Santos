@@ -102,16 +102,13 @@ if (isset($_POST["email"])) {
                     <input type="password" class="form-control" placeholder="Password" required="required" input name="password"/>
                 </div>
             </div>
-            <div class="forgot">
-                <a href="#">Olvidaste tu Contraseña?</a>
-                <p><input type="checkbox">Recuerdame</p>
-            </div>
+            
             <button type="submit" value="Entra">Login</button>
         </form>
         <p class=" w3l-register-p">No Tienes una Cuenta?. A que esperas:<a href="registro.php" class="register"> Registrate Aqui</a></p>
     </div>
     <footer>
-        <p class="copyright-agileinfo"> &copy; 2019 Carlos Valenzuela. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+        <p class="copyright-agileinfo"> &copy; 2019 Carlos Valenzuela. All Rights Reserved</p>
     </footer>
 
 </body>

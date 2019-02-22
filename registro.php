@@ -58,7 +58,7 @@ echo $usuario;
         <form action="registro.php" method="post">
           <p style="color:red">Nombres:
           <input name="nombre" type="text" placeholder="Nombres" required></p>
-          <p style="colonombrer:red">Apellidos:
+          <p style="color:red">Apellidos:
           <input name="apellidos" type="text" placeholder="Apellidos" required></p>
           <p style="color:red">Direccion:
           <input name="direccion" type="text" placeholder="Tu Direccion" required></p>
@@ -67,6 +67,8 @@ echo $usuario;
           <p style="color:red">Password:
           <input name="password" type="password" placeholder="Password" required></p>
           <p><input type="submit" value="Registrarse"></p>
+          <a href="inicio.php"><input type="button" value="Salir"></a>
+         
         </form>
 
 

@@ -115,7 +115,7 @@ if (!isset($_POST["nombre"])) : ?>
                 $tmp_file = $_FILES['image']['tmp_name'];
 
                 //Dir where we are going to store the file
-                $target_dir = "/var/www/html/proyecto/portada/";
+                $target_dir = "portada/";
 
                 //Full name of the file.
                 $target_file = strtolower($target_dir . basename($_FILES['image']['name']));
@@ -125,7 +125,7 @@ if (!isset($_POST["nombre"])) : ?>
 
                 //Check if the file already exists
                 if (file_exists($target_file)) {
-                  echo "La portaada es repetida.";
+                  echo "La portada es repetida.";
                   $valid = false;
                 }
 
@@ -145,11 +145,11 @@ if (!isset($_POST["nombre"])) : ?>
 
                 if ($valid) {
 
-                  var_dump($target_file);
+                  //var_dump($target_file);
                   //Put the file in its place
                   move_uploaded_file($tmp_file, $target_file);
 
-                  echo "PRODUCT ADDED";
+                  //echo "PRODUCT ADDED";
 
 
                 }

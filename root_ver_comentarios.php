@@ -90,7 +90,8 @@
                 <table>
                    <tr>
   
-                     <td><form action='root_usuarios.php'><input type='submit' style='color: #FF0000' value='Salir'></form></td>
+                     <td><form action='root_usuarios.php'><input type='submit' style='color: #FF0000' value='Volver a Listado de Peliculas'></form></td>
+                     <td><form action='cerrar_session.php'><input type='submit' style='color: #FF0000' value='Cerrar Sesion'></form></td>
 
                    </tr>
   </table>

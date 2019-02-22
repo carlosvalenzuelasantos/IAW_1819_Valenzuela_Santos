@@ -32,7 +32,7 @@
               </div>
 
               <div class="row justify-content-center">
-                 <h2 class="text-white">Hola Usuario: <?php echo $_SESSION["nombre"]; echo " "; echo $_SESSION["apellidos"]; ?> </h2>
+                 <h2 class="text-white">Hola Administrador: <?php echo $_SESSION["nombre"]; echo " "; echo $_SESSION["apellidos"]; ?> </h2>
               </div>
 
           </div>
@@ -261,7 +261,7 @@
                 <table>
                    <tr>
   
-                     <td><form action='inicio.php'><input type='submit' style='color: #FF0000' value='Salir'></form></td>
+                     <td><form action='cerrar_session.php'><input type='submit' style='color: #FF0000' value='Cerrar Sesion'></form></td>
                      <td><form action='root.php'><input type='submit' style='color: #FF0000' value='Volver a Administrar'></form></td>
 
                    </tr>

@@ -91,8 +91,9 @@
   
   <table>
      <tr>
-  
-       <td><form action='root.php'><input type='submit' style='color: #FF0000' value='Volver'></form></td>
+      
+      <td><form action='anade_actores.php'><input type='submit' style='color: #FF0000' value='Añadir Mas Actores'></form></td>
+       <td><form action='root.php'><input type='submit' style='color: #FF0000' value='Administracion'></form></td>
        
      </tr>
   </table>

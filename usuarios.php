@@ -213,7 +213,7 @@
                 <table style="border:1px solid black">
                   <thead>
                     <tr>
-                      <th>ID Pelicula</th>
+                      
                       <th>Nombre</th>
                      
                       <th>Director</th>
@@ -229,7 +229,7 @@
                         while($obj = $result->fetch_object()) {
                             echo "<tr>";
 
-                              echo "<td>".$obj->id_pelicula."</a></td>";
+                              
                               echo "<td>".$obj->nombre."</td>";     
                               echo "<td>".$obj->director."</td>";
 

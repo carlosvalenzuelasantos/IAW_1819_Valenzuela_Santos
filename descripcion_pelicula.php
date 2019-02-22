@@ -50,11 +50,11 @@
            
           
           
-          $query1="SELECT * from peliculas WHERE id_pelicula='".$_GET["id"]."'" ;
+          $query1="SELECT * from peliculas WHERE id_pelicula=$_GET[id]" ;
         
         
           $query2="SELECT a.nombre as nombreactor from peliculas p join participar pa on p.id_pelicula = pa.id_pelicula
-                      join actores a on a.id_actor=pa.id_actor where p.id_pelicula='".$_GET["id"]."'"; 
+                      join actores a on a.id_actor=pa.id_actor where p.id_pelicula=$_GET[id]"; 
 
 
           if ($result = $connection->query($query1)) {
@@ -71,7 +71,7 @@
                     <th>Genero</th>
                     <th>Actores</th>
 
-                    <td>Caratula</td>
+                    <th>Caratula</th>
                   </tr>
 
                 </thead><br>
@@ -81,6 +81,7 @@
               while($obj = $result->fetch_object()) {
 
                 $link = $obj->link;
+                $portada = $obj->portada;
   
                 echo "<tr>";
                       echo "<td>".$obj->id_pelicula."</td>";
@@ -101,7 +102,7 @@
                       echo "</td>";
 
                       echo "<td><a href='$link' target='_blank'>
-                      <img src='images/star_wars.jpg' height='100' width='100'/></a></td>";
+                      <img src='$portada' height='350' width='225'/></a></td>";
                       
                 
 
