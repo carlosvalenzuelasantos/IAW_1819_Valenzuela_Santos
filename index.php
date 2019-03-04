@@ -86,7 +86,7 @@ if (isset($_POST["email"])) {
     <h1>PELICULAS.COM</h1>
     <div class=" w3l-login-form">
         <h2>Logueate Aqui</h2>
-        <form action="inicio.php" method="post">
+        <form action="index.php" method="post">
 
             <div class=" w3l-form-group">
                 <label>Usuario:</label>

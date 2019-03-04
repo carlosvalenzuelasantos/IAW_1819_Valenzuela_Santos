@@ -4,7 +4,7 @@
 if (!isset($_SESSION["nombre"]) || $_SESSION["email"]!="root@root.com")
 {
   session_destroy();
-    header("Location: inicio.php");
+    header("Location: index.php");
 }
  
 ?>

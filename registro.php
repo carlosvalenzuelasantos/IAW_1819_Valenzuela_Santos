@@ -37,7 +37,7 @@ if (isset($_POST["nombre"])) {
 
 echo $usuario;
  if ($result =$connection->query($usuario)) {
-    header("Location: inicio.php");
+    header("Location: index.php");
   } else {
     echo "<h1>Error en el registro</h1>";
   }
@@ -67,7 +67,7 @@ echo $usuario;
           <p style="color:red">Password:
           <input name="password" type="password" placeholder="Password" required></p>
           <p><input type="submit" value="Registrarse"></p>
-          <a href="inicio.php"><input type="button" value="Salir"></a>
+          <a href="index.php"><input type="button" value="Salir"></a>
          
         </form>
 

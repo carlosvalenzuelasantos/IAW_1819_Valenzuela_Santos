@@ -1,0 +1,12 @@
+.container {
+    background-image: url("../images/star.jpg");
+    background-size: 100% 100%;
+    height:-webkit-fill-available;
+  }
+
+
+  #carrusel {
+
+    height: 200px;
+    padding: 0;
+  }
