@@ -21,7 +21,7 @@
                 <div class="row justify-content-center">
 
                         <?php 
-                        include 'root_usuarios.php';
+                        include 'administrar_peliculas.php';
                         ?>
 
                 </div>       

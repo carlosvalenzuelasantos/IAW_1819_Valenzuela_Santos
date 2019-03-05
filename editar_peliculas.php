@@ -2,43 +2,23 @@
  include 'session_root.php';
 ?>
 
-
-
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="css/root.css">
+  
+        <?php 
+        include 'head.php';
+        ?>
 
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Editar Peliculas</title>
-  </head>
   <body>
 
+        <div class="container">
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <?php 
+                include 'plantilla_root.php';
+                ?>
+                
 
-<?php
-
-  ?>
-
-  <div class ="container">
-        <div class ="titulo">
-           <div class="row justify-content-center">
-            <h1 class="text-white display-2">Peliculas.com</h1>
-           </div>
-           <div class="row justify-content-center">
-           <h2 class="text-white">Hola Administrador: </h2>
-           </div>
-        </div>
+                <div class="row justify-content-center">
 
 
 
@@ -257,7 +237,7 @@
 
 
           if ($result = $connection->query($query)) {
-            header('Location: administrar_peliculas.php');
+            header('Location: administrar_peliculas_edita.php');
            
           } else {
             echo "Error al actualizar los datos <br>";
@@ -268,10 +248,14 @@
 
          
   
-       <form action='administrar_peliculas.php'><input type='submit' style='color: #FF0000' value='Volver'></form></td>
-       
-     
-  
+         </div>       
+                
+                                
+                        
+                </div>
         
-
-  </div>
+        
+          </body>
+        
+        
+        </html>

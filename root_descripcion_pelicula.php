@@ -3,40 +3,22 @@
 ?>
 
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="css/descripcion_pelicula.css">
+  
+        <?php 
+        include 'head.php';
+        ?>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Descripcion Peliculas</title>
-  </head>
   <body>
 
+        <div class="container">
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <?php 
+                include 'plantilla_root.php';
+                ?>
+                
 
-
-
-  <div class ="container">
-        <div class ="titulo">
-
-              <div class="row justify-content-center">
-                  <h1 class="text-white display-2">Peliculas.com</h1>
-              </div>
-
-              <div class="row justify-content-center">
-                  <h2 class="text-white">Hola Usuario: <?php echo $_SESSION["nombre"]; echo " "; echo $_SESSION["apellidos"]; ?> </h2>
-              </div>
-
-        </div> 
+                <div class="row justify-content-center">
 
         <?php
 
@@ -145,8 +127,7 @@
 
                         <input type="submit" value="Agregar Comentario y Valoracion">
                         
-                        <a href='root_ver_comentarios.php'><input type='button' style='color: #FF0000' value='Ver todos los Comentarios'>
-                        <a href='root_usuarios.php'><input type='button' style='color: #FF0000' value='Volver Atras'></a>
+                        
                  <br>
         
                 </fieldset>
@@ -180,7 +161,7 @@
       echo "Query Error <br>";
    } else {
     echo "Comentario Añadido Correctamente <br>";
-    echo "<a href='ver_comentarios.php'><input type='button' style='color: #FF0000' value='Ver Comentarios'></a>";
+    
    }
 
   ?>
@@ -189,10 +170,15 @@
 
 
 
-  </div>
-
-</body>
-
-
-
-</html>
+</div>       
+                
+                                
+                        
+                </div>
+        
+        
+          </body>
+        
+        
+        </html>
+        

@@ -53,7 +53,7 @@
         if (!$result) {
         echo "Query Error <br>";
         } else {
-            header('Location: administrar_peliculas.php');
+            header('Location: administrar_peliculas_borrar.php');
         }
 
         ?>
