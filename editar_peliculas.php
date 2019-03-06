@@ -150,7 +150,8 @@
 
                     //Check if the file already exists
                     if (file_exists($target_file)) {
-                      echo "La portaada es repetida.";
+                      echo "La portada es repetida, pero la pelicula ha sido actualizada";
+                      header('Location: root.php');
                       $valid = false;
                     }
 
@@ -174,7 +175,8 @@
                       //Put the file in its place
                       move_uploaded_file($tmp_file, $target_file);
 
-                      echo "PRODUCT ADDED";
+                      echo "Tu Pelicula ha sido editada, Gracias";
+                      header('Location: root.php');
 
 
                     }
@@ -237,7 +239,7 @@
 
 
           if ($result = $connection->query($query)) {
-            header('Location: administrar_peliculas_edita.php');
+            header('Location: root.php');
            
           } else {
             echo "Error al actualizar los datos <br>";

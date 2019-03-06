@@ -43,7 +43,7 @@
                     
 <div class="row">
 
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
                         <a class="navbar-brand" href="root.php">ADMINISTRADOR</a>
@@ -59,7 +59,7 @@
                                 PELICULAS   
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="anade_pelicula1.php">Añade</a>
+                                <a class="dropdown-item" href="anade_pelicula.php">Añade</a>
                                 <a class="dropdown-item" href="administrar_peliculas_edita.php">Edita</a>
                                 <a class="dropdown-item" href="administrar_peliculas_borrar.php">Borra</a>
                                 
@@ -73,7 +73,8 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="anade_actores.php">Añade</a>
-                                <a class="dropdown-item" href="administrar_actores.php">Edita-Borra</a>
+                                <a class="dropdown-item" href="administrar_actores_edita.php">Edita</a>
+                                <a class="dropdown-item" href="administrar_actores_borrar.php">Borra</a>
                                 
                                 </div>
                             </li>
@@ -85,8 +86,19 @@
                                 USUARIOS
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="administrar_usuarios.php">Edita-Borra</a>
-                                <a class="dropdown-item" href="administrar_comentarios.php">Comentarios</a>
+                                <a class="dropdown-item" href="administrar_usuarios_editar.php">Edita</a>
+                                <a class="dropdown-item" href="administrar_usuarios_borrar.php">Borra</a>
+                                
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                COMENTARIOS
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="administrar_comentarios.php">Ver y Borrar</a>
+                                
                                 
                                 </div>
                             </li>
@@ -103,10 +115,10 @@
                 </nav>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
 
                 <?php 
-                include 'buscador.php';
+                include 'buscador_root.php';
                 ?>
 
             </div>

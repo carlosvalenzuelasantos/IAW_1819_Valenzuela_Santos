@@ -20,7 +20,7 @@
 
                 <div class="row justify-content-center">
 
-        <?php
+                <?php
 
         $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
           $connection->set_charset("uft8");
@@ -30,7 +30,7 @@
               exit();
           }
 
-          $query="SELECT * from usuario";
+          $query="SELECT * from actores";
 
           if ($result = $connection->query($query)) {
 
@@ -38,11 +38,11 @@
               <table style="border:1px solid black">
                 <thead>
                   <tr>
+                    <th>ID Actore</th>
                     <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Id_Usuario</th>
-                    <th>Direccion</th>
-                    <th>Email</th>
+                    <th>Nacionalidad</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Edita</th>
 
                 </thead><br>
 
@@ -50,13 +50,13 @@
 
               while($obj = $result->fetch_object()) {
                   echo "<tr>";
+                    echo "<td>".$obj->id_actor."</td>";
                     echo "<td>".$obj->nombre."</td>";
-                    echo "<td>".$obj->apellidos."</td>";
-                    echo "<td>".$obj->id_usuario."</td>";
-                    echo "<td>".$obj->direccion."</td>";
-                    echo "<td>".$obj->email."</td>";
-                    echo "<td><a href='borrar_usuarios.php?id=".$obj ->id_usuario."'><img src='images/delete.png' height='25' width='25'/></a></td>";
-                    echo "<td><a href='editar_usuarios.php?id=".$obj ->id_usuario."'><img src='images/editar.png' height='25' width='25'/></a></td>";
+                    echo "<td>".$obj->nacionalidad."</td>";
+                    echo "<td>".$obj->fecha_nacimiento."</td>";
+                    
+                    
+                    echo "<td><a href='editar_actores.php?id=".$obj->id_actor."'><img src='images/editar.png' height='25' width='25'/></a></td>";
 
                   echo "</tr>";
 
@@ -71,7 +71,11 @@
           ?>
 
 
-</div>       
+
+  
+  </table>
+
+  </div>       
                 
                                 
                         

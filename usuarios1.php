@@ -1,5 +1,4 @@
 
-     
                     
             <?php
 
@@ -61,7 +60,7 @@
                                                       }
                                                     }
                                  
-                                              echo "<td><a href='root_descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
+                                              echo "<td><a href='descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
                 
                 
                                             echo "</tr>";
@@ -122,7 +121,7 @@
                                                                 }
                                                               }
                                            
-                                                        echo "<td><a href='root_descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
+                                                        echo "<td><a href='descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
                           
                           
                                                       echo "</tr>";
@@ -162,12 +161,12 @@
             
             ?>
 
-            
+                
 
                 <table style="border:1px solid black">
                   <thead>
                     <tr>
-                      <th>ID Pelicula</th>
+                      
                       <th>Nombre</th>
                      
                       <th>Director</th>
@@ -183,7 +182,7 @@
                         while($obj = $result->fetch_object()) {
                             echo "<tr>";
 
-                              echo "<td>".$obj->id_pelicula."</a></td>";
+                              
                               echo "<td>".$obj->nombre."</td>";     
                               echo "<td>".$obj->director."</td>";
 
@@ -198,7 +197,7 @@
                                       }
                                     }
                  
-                              echo "<td><a href='root_descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
+                              echo "<td><a href='descripcion_pelicula.php?id=".$obj->id_pelicula."'><img src='images/link.png' height='25' width='25'/></td>";
 
 
                             echo "</tr>";
@@ -213,5 +212,3 @@
                 </table>
                 
                 
-
-  

@@ -20,7 +20,7 @@
 
                 <div class="row justify-content-center">
 
-        <?php
+                <?php
 
         $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
           $connection->set_charset("uft8");
@@ -43,6 +43,8 @@
                     <th>Id_Usuario</th>
                     <th>Direccion</th>
                     <th>Email</th>
+                    <th>Borrar</th>
+
 
                 </thead><br>
 
@@ -56,7 +58,7 @@
                     echo "<td>".$obj->direccion."</td>";
                     echo "<td>".$obj->email."</td>";
                     echo "<td><a href='borrar_usuarios.php?id=".$obj ->id_usuario."'><img src='images/delete.png' height='25' width='25'/></a></td>";
-                    echo "<td><a href='editar_usuarios.php?id=".$obj ->id_usuario."'><img src='images/editar.png' height='25' width='25'/></a></td>";
+                    
 
                   echo "</tr>";
 
@@ -70,15 +72,14 @@
 
           ?>
 
-
 </div>       
                 
                                 
                         
-        </div>
-
-
-  </body>
-
-
-</html>
+                </div>
+        
+        
+          </body>
+        
+        
+        </html>

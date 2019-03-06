@@ -56,6 +56,7 @@
                     if (!$result) {
                         echo "Query Error <br>";
                     } else {
+                        echo " Tu Actor ha sido añadido, Gracias<br>";
                         header('Location: administrar_actores.php');
                     }
 

@@ -1,5 +1,26 @@
+<?php 
+ include 'session_root.php';
+?>
 
-<?php
+<html lang="en">
+  
+        <?php 
+        include 'head.php';
+        ?>
+
+
+  <body>
+
+        <div class="container">
+
+                <?php 
+                include 'plantilla_root.php';
+                ?>
+                
+
+                <div class="row justify-content-center">
+
+                <?php
 
 if (!isset($_POST["nombre"])) : ?>
     <form method="post" enctype="multipart/form-data">
@@ -161,5 +182,14 @@ if (!isset($_POST["nombre"])) : ?>
 
 <?php endif; ?>
 
+                </div>       
+                
+                                
+                        
+        </div>
 
 
+  </body>
+
+
+</html>
