@@ -33,7 +33,7 @@ if (!isset($_POST["nombre"])) : ?>
         <span>Enlace:</span><input type="text" name="link" required><br>
         <span>Actores</span>
 
-                <select name="actores[]" multiple>
+                <select name="actores[]" multiple required>
                 
                   '<?php  
 
@@ -74,14 +74,14 @@ if (!isset($_POST["nombre"])) : ?>
                               }             
                                                   
                   ?>' 
-                </select><br>
+                </select><br><br>
 
-          <span>Subir Imagen</span>  
+          <span>Subir Imagen</span> <br>
 
           <input class="form-control" type="file" name="image" required />
 
         
-      </fieldset>
+      </fieldset><br>
       <input type="submit" value="Insertar Pelicula">
       
     

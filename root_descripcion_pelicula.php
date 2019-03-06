@@ -43,20 +43,28 @@
           
           
           ?>
-              <table style="border:1px solid black">
-                <thead>
-                  <tr>
-                    <th>ID Pelicula</th>
-                    <th>Nombre</th>
-                    <th>Fecha</th>
-                    <th>Direccion</th>
-                    <th>Genero</th>
-                    <th>Actores</th>
 
-                    <th>Caratula</th>
-                  </tr>
 
-                </thead><br>
+<div class="row justify-content-center align-items-center">
+              <div id="info" class="col-md-12">
+
+                    <table style="border:1px solid black" width="950" >
+                        <thead>
+                        <tr>
+                            <th>Caratula</th>
+                            <th>Nombre</th>
+                            <th>Fecha</th>
+                            <th>Direccion</th>
+                            <th>Genero</th>
+                            <th>Actores</th>
+
+                            
+                        </tr>
+
+                        </thead>    
+
+                </div> 
+                </div>
 
           <?php
 
@@ -64,9 +72,14 @@
 
                 $link = $obj->link;
                 $portada = $obj->portada;
+
+                
   
                 echo "<tr>";
-                      echo "<td>".$obj->id_pelicula."</td>";
+
+                      echo "<td><a href='$link' target='_blank'>
+                            <img src='$portada' height='350' width='225'/></a></td>";
+                      
                       echo "<td>".$obj->nombre."</td>";
                       echo "<td>".$obj->fecha."</td>";
                       echo "<td>".$obj->director."</td>";
@@ -83,8 +96,7 @@
                       
                       echo "</td>";
 
-                      echo "<td><a href='$link' target='_blank'>
-                      <img src='$portada' height='350' width='225'/></a></td>";
+                      
                       
                 
 
@@ -103,35 +115,43 @@
         <?php
 
           if (!isset($_POST["comentarios"])) : ?>
+              
+              <div class="row justify-content-center align-items-center">
+              <div id="coment" class="col-md-12">
+
               <form method="post">
-                <fieldset>
-                  <legend>Valora y Comenta</legend>
-                  <span>Comentarios:</span><textarea name="comentarios" required></textarea><br>
-                  <span>Valoracion:</span>
+                
+                  
+                  <table width="950" border="2" cellspacing="3" cellpadding="3">
+                      <tr>
+                  <td><span>Comentarios:</span><textarea name="comentarios" required cols="30" rows="5" style="resize: both;"></textarea></td>
+                  <td><span>Valoracion:</span></td>
                         
                   
-                        <p class="clasificacion">
-                              <input id="radio1" type="radio" name="valoracion" value="5"><!--
-                              --><label for="radio1">★</label><!--
-                              --><input id="radio2" type="radio" name="valoracion" value="4"><!--
-                              --><label for="radio2">★</label><!--
+                  <td>   <p class="clasificacion">
+                              <input id="radio1" type="radio" name="valoracion" value="1"><!--
+                              --><label for="radio1">★1</label><!--
+                              --><input id="radio2" type="radio" name="valoracion" value="2"><!--
+                              --><label for="radio2">★2</label><!--
                               --><input id="radio3" type="radio" name="valoracion" value="3"><!--
-                              --><label for="radio3">★</label><!--
-                              --><input id="radio4" type="radio" name="valoracion" value="2"><!--
-                              --><label for="radio4">★</label><!--
-                              --><input id="radio5" type="radio" name="valoracion" value="1"><!--
-                              --><label for="radio5">★</label>
+                              --><label for="radio3">★3</label><!--
+                              --><input id="radio4" type="radio" name="valoracion" value="4"><!--
+                              --><label for="radio4">★4</label><!--
+                              --><input id="radio5" type="radio" name="valoracion" value="5"><!--
+                              --><label for="radio5">★5</label>
                         </p>
                   
+                        </td>
 
-
-                        <input type="submit" value="Agregar Comentario y Valoracion">
+                        <td>  <input type="submit" value="Agregar Comentario y Valoracion"></td>
                         
-                        
-                 <br>
-        
-                </fieldset>
+                      
+                        <tr>
+                 <table> 
+                
                </form>
+        </div>
+        </div>
 
   <?php else: ?>
 

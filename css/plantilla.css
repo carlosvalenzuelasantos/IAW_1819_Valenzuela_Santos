@@ -10,3 +10,8 @@
     height: 200px;
     padding: 0;
   }
+
+  select {
+    height: 180px;
+    width: 300px;
+}

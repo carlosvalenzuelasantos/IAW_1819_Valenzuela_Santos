@@ -35,7 +35,7 @@
           if ($result = $connection->query($query)) {
 
           ?>
-              <table style="border:1px solid black">
+              <table style="border:1px solid black" width="1000">
                 <thead>
                   <tr>
                     <th>Nombre</th>

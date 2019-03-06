@@ -61,7 +61,7 @@
                                 COMENTARIOS
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="administrar_comentarios.php">Ver Comentarios</a>
+                                <a class="dropdown-item" href="ver_comentarios.php">Ver Comentarios</a>
                                 
                                 
                                 </div>

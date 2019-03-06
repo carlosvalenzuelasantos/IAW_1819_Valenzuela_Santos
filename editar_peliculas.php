@@ -125,7 +125,7 @@
 
           <input class="form-control" type="file" name="image" required />
               
-              <input type="hidden" name="id_pelicula" value='<?php echo $id_pelicula; ?>'>
+              <input type="hidden" name="id_pelicula" value='<?php echo $id_pelicula; ?>'><br>
               <p><input type="submit" value="Actualizar"></p>
             </fieldset>
           </form>
