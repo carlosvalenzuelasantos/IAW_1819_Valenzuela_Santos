@@ -45,26 +45,24 @@
           ?>
 
 
-<div class="row justify-content-center align-items-center">
-              <div id="info" class="col-md-12">
 
-                    <table style="border:1px solid black" width="950" >
-                        <thead>
+
+                    <table class="table" >
+                        <thead class="thead-dark">
                         <tr>
-                            <th>Caratula</th>
-                            <th>Nombre</th>
-                            <th>Fecha</th>
-                            <th>Direccion</th>
-                            <th>Genero</th>
-                            <th>Actores</th>
+                            <th scope="col">Caratula</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Genero</th>
+                            <th scope="col">Actores</th>
 
                             
                         </tr>
 
                         </thead>    
 
-                </div> 
-                </div>
+                        <tbody>
 
           <?php
 
@@ -112,6 +110,9 @@
 
 ?>
 
+<tbody>
+
+</table>
         <?php
 
           if (!isset($_POST["comentarios"])) : ?>

@@ -38,16 +38,18 @@
           if ($result = $connection->query($query)) {
 
           ?>
-              <table style="border:1px solid black">
-                <thead>
+              <table class="table">
+                <thead class="thead-dark">
                   <tr>
-                    <th>Nombre de Pelicula</th>
-                    <th>Comentarios</th>
-                    <th>Valoracion</th>
-                    <th>Nombre de Usuario</th>
-                    <th>Borrar</th>
+                    <th scope="col">Nombre de Pelicula</th>
+                    <th scope="col">Comentarios</th>
+                    <th scope="col">Valoracion</th>
+                    <th scope="col">Nombre de Usuario</th>
+                    <th scope="col">Borrar</th>
 
-                </thead><br>
+                </thead>
+
+                <tbody>
 
           <?php
 
@@ -72,6 +74,8 @@
           }
 
           ?>
+
+</tbody>
 
 </div>       
                 

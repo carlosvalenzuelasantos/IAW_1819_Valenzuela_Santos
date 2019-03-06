@@ -36,21 +36,23 @@
           if ($result = $connection->query($query)) {
 
           ?>
-              <table style="border:1px solid black" width="1000">
-                <thead>
+              <table class="table">
+                <thead class="thead-dark">
                   <tr>
-                    <th>ID Pelicula</th>
-                    <th>Nombre</th>
-                    <th>Fecha</th>
-                    <th>Direccion</th>
-                    <th>Genero</th>
-                    <th>Enlace</th>
+                    <th scope="col">ID Pelicula</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Enlace</th>
                 
                     
-                    <th>Editar</th>
+                    <th scope="col">Editar</th>
                     
 
-                </thead><br>
+                </thead>
+
+                <tbody>
 
           <?php
 
@@ -82,7 +84,7 @@
 
           ?>
 
-
+        </tbody>
 
 </table>
 

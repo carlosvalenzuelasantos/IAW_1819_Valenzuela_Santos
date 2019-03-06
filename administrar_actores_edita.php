@@ -35,16 +35,18 @@
           if ($result = $connection->query($query)) {
 
           ?>
-              <table style="border:1px solid black">
-                <thead>
+              <table class="table">
+                <thead class="thead-dark">
                   <tr>
-                    <th>ID Actore</th>
-                    <th>Nombre</th>
-                    <th>Nacionalidad</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Edita</th>
+                    <th scope="col">ID Actore</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Nacionalidad</th>
+                    <th scope="col">Fecha de Nacimiento</th>
+                    <th scope="col">Edita</th>
 
-                </thead><br>
+                </thead>
+
+                <tbody>
 
           <?php
 
@@ -71,7 +73,7 @@
           ?>
 
 
-
+</tbody>
   
   </table>
 

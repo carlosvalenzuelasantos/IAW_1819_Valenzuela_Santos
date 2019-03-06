@@ -28,18 +28,20 @@
             
                             ?>
                 
-                                <table style="border:1px solid black">
-                                  <thead>
+                                <table class="table">
+                                  <thead class="thead-dark">
                                     <tr>
                                       
-                                      <th>Nombre Pelicula</th>
+                                      <th scope="col">Nombre Pelicula</th>
                                      
-                                      <th>Valoracion Media</th>
+                                      <th scope="col">Valoracion Media</th>
                                     
-                                      <th>Descripcion</th>
+                                      <th scope="col">Descripcion</th>
                 
                 
-                                  </thead><br>
+                                  </thead>
+
+                                  <tbody>
                 
                                     <?php
 
@@ -86,21 +88,26 @@
                                     if ($result = $connection->query($queryb)) {
             
                                       ?>
+
+                                      </tbody>
+                                   </table>
                           
-                                          <table style="border:1px solid black">
-                                            <thead>
+                                          <table class="table">
+                                            <thead class="thead-dark">
                                               <tr>
                                                 
-                                                <th>Nombre Pelicula</th>
+                                                <th scope="col">Nombre Pelicula</th>
                                                
-                                                <th>Nombre Actor</th>
+                                                <th scope="col">Nombre Actor</th>
                           
-                                                <th>Valoracion Media</th>
+                                                <th scope="col">Valoracion Media</th>
                                               
-                                                <th>Descripcion</th>
+                                                <th scope="col">Descripcion</th>
                           
                           
-                                            </thead><br>
+                                            </thead>
+
+                                            <tbody>
                           
                                               <?php
 
@@ -137,7 +144,10 @@
                     
 
                                     ?>
-          
+
+                                            </tbody>
+                                   </table>
+                                                      
 
 
 
@@ -164,20 +174,22 @@
 
             
 
-                <table style="border:1px solid black">
-                  <thead>
+                <table class="table">
+                  <thead class="thead-dark">
                     <tr>
-                      <th>ID Pelicula</th>
-                      <th>Nombre</th>
+                      <th scope="col">ID Pelicula</th>
+                      <th scope="col">Nombre</th>
                      
-                      <th>Director</th>
+                      <th scope="col">Director</th>
 
-                      <th>Valoracion Media</th>
+                      <th scope="col">Valoracion Media</th>
                     
-                      <th>Descripcion</th>
+                      <th scope="col">Descripcion</th>
 
 
-                  </thead><br>
+                  </thead>
+
+                  <tbody>
 
                     <?php
                         while($obj = $result->fetch_object()) {
@@ -210,6 +222,8 @@
 
                   }
                     ?>
+
+                  </tbody>
                 </table>
                 
                 

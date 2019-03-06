@@ -35,17 +35,19 @@
           if ($result = $connection->query($query)) {
 
           ?>
-              <table style="border:1px solid black" width="1000">
-                <thead>
+              <table class="table">
+                <thead class="thead-dark">
                   <tr>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Id_Usuario</th>
-                    <th>Direccion</th>
-                    <th>Email</th>
-                    <th>Editar</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Id_Usuario</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Editar</th>
 
-                </thead><br>
+                </thead>
+
+                <tbody>
 
           <?php
 
@@ -70,8 +72,10 @@
           }
 
           ?>
+          </tbody>
+          </table>
 
-</div>       
+       </div>       
                 
                                 
                         

@@ -60,7 +60,7 @@ if (isset($_POST["email"])) {
 
     <html lang="en">
 
-    <title>Material Login Form a Responsive Widget Template :: w3layouts</title>
+    <title>Peliculas.Com</title>
     <!-- meta tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
