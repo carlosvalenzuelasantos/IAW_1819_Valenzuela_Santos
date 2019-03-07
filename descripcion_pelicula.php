@@ -49,7 +49,7 @@
                     <table class="table" >
                         <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Caratula</th>
+                            <th scope="col">Caratula (Trailer click)</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Direccion</th>

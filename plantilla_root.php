@@ -1,6 +1,8 @@
 <div class="row justify-content-center align-items-center">
 
                 <div id="1" class="col-md-4">
+                <h1>PELICULAS.COM</h1>
+
                 </div>
          
                 <div id="carrusel" class="col-md-4">

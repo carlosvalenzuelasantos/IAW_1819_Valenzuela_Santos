@@ -44,7 +44,7 @@
                     <th scope="col">Fecha</th>
                     <th scope="col">Direccion</th>
                     <th scope="col">Genero</th>
-                    <th scope="col">Enlace</th>
+                    <th scope="col">Trailer</th>
                 
                     
                     <th scope="col">Borrar</th>

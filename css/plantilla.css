@@ -2,10 +2,13 @@
     background-image: url("../images/star.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-  background-attachment: fixed;
-  
+    background-attachment: fixed;
+    
   }
-
+ 
+   body {
+     background-color:grey !important;
+   }
 
   #carrusel {
 
