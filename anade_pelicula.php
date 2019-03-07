@@ -23,70 +23,112 @@
                 <?php
 
 if (!isset($_POST["nombre"])) : ?>
+
     <form method="post" enctype="multipart/form-data">
-      <fieldset>
-        <legend>Añade La Pelicula</legend>
-        <span>Nombre:</span><input type="text" name="nombre" required><br>
-        <span>Fecha:</span><input type="date" name="fecha" required><br>
-        <span>Director:</span><input type="text" name="director" required><br>
-        <span>Genero:</span><input type="text" name="genero" required><br>
-        <span>Enlace:</span><input type="text" name="link" required><br>
-        <span>Actores</span>
+         <h3 align="center">Añade la Pelicula</h3>
 
-                <select name="actores[]" multiple required>
-                
-                  '<?php  
+         <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Nombre</label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" id="colFormLabel" placeholder="Escribe el nombre de la pelicula" name="nombre" required>
+            </div>
+        </div>
 
-                        $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
-                        $connection->set_charset("uft8");
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Fecha</label>
+            <div class="col-sm-8">
+            <input type="date" class="form-control" id="colFormLabel" name="fecha" required>
+            </div>
+        </div>
 
-                        if ($connection->connect_errno) {
-                            printf("Connection failed: %s\n", $connection->connect_error);
-                            exit();
-                        }
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Director</label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" id="colFormLabel" placeholder="Escribe del nombre del director" name="director" required>
+            </div>
+        </div>
 
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Género</label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" id="colFormLabel" placeholder="Escribe el tipo de género" name="genero" required>
+            </div>
+        </div>
 
-                        $query2="SELECT nombre, id_actor from actores";
-
-  
-                        $v=[];
-
-                        if ($result=$connection->query($query2)) {
-                                                                                
-                          while($obj = $result->fetch_object()) {
-
-                          $v[]=$obj->id_actor;
-                        
-                          
-                          }
-                        }
-
-                              if ($result=$connection->query($query2)) {
-                                    
-                                while($obj = $result->fetch_object()) {
-
-                                  
-                                    echo "<option value=".$obj->id_actor."'>".$obj->nombre."</option>";
-                                                                          
-                                      
-                                  
-                                }
-                              }             
-                                                  
-                  ?>' 
-                </select><br><br>
-
-          <span>Subir Imagen</span> <br>
-
-          <input class="form-control" type="file" name="image" required />
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Enlace</label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" id="colFormLabel" placeholder="Pega la Url del trailer" name="link" required>
+            </div>
+        </div>
 
         
-      </fieldset><br>
-      <input type="submit" value="Insertar Pelicula">
-      
-    
-    </form>
-</div>
+
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Actores que participan (Si son varios Crtl+click)</label>
+            <div class="col-sm-8">
+                 
+            <select name="actores[]" multiple required>
+                
+                '<?php  
+
+                      $connection = new mysqli("localhost", "root", "Admin2015", "proyecto", "3316");
+                      $connection->set_charset("uft8");
+
+                      if ($connection->connect_errno) {
+                          printf("Connection failed: %s\n", $connection->connect_error);
+                          exit();
+                      }
+
+
+                      $query2="SELECT nombre, id_actor from actores";
+
+
+                      $v=[];
+
+                      if ($result=$connection->query($query2)) {
+                                                                              
+                        while($obj = $result->fetch_object()) {
+
+                        $v[]=$obj->id_actor;
+                      
+                        
+                        }
+                      }
+
+                            if ($result=$connection->query($query2)) {
+                                  
+                              while($obj = $result->fetch_object()) {
+
+                                
+                                  echo "<option value=".$obj->id_actor."'>".$obj->nombre."</option>";
+                                                                        
+                                    
+                                
+                              }
+                            }             
+                                                
+                ?>' 
+              </select>
+            
+
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Imagen de Portada</label>
+            <div class="col-sm-8">
+              <input class="form-control" type="file" name="image" required />
+            </div>
+        </div>
+        
+
+        <button type="submit" class="btn btn-primary my-1">Añade Pelicula</button>
+
+        </form>
+
+
   <?php else: ?>
 
 
@@ -108,7 +150,7 @@ if (!isset($_POST["nombre"])) : ?>
 
                 //Check if the file already exists
                 if (file_exists($target_file)) {
-                  echo "La portada que acabas de añadir ya esta en la base de datos, Recuerdalo. </br>" ;
+                  echo "La portada que acabas de añadir es repetida, pero  </br>" ;
                   $valid = false;
                 }
 
@@ -174,7 +216,7 @@ if (!isset($_POST["nombre"])) : ?>
    if (!$result) {
       echo "Query Error <br>";
    } else {
-       echo " Tu pelicula ha sido añadida, Gracias<br>";
+       echo " Tu pelicula ha sido añadida ;), Gracias<br>";
        
    }
 

@@ -33,7 +33,7 @@
                 <div id="3" class="col-md-4">
                 
                 <h5 class="text-white">Hola Administrador: <?php echo $_SESSION["nombre"]; echo " "; echo $_SESSION["apellidos"]; ?></h5>
-
+                <a id="logout" href="cerrar_session.php"><img src="images/logout.png"></a>
                 </div>
 </div> 
 
@@ -105,7 +105,7 @@
 
                             <li>
 
-                            <a id="logout" href="cerrar_session.php"><img src="images/logout.png"></a>   
+                               
 
                             </li>
 

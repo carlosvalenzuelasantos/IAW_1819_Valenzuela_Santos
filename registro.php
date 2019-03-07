@@ -47,7 +47,7 @@
 
                 <div id="3" class="col-md-4">
                 
-                <h5 class="text-black">Hola nuevo usuario, rellena todos los campos y disfruta del contenido</h5>
+                <h5 class="text-black">Hola nuevo usuario, rellena todos los campos y disfruta del contenido de PELICULAS.COM</h5>
 
                 </div>
 </div> <br><br>
@@ -69,7 +69,7 @@
 
                           echo $usuario;
                           if ($result =$connection->query($usuario)) {
-                              header("Location: index.php");
+                              header("Location: bienvenido.php");
                             } else {
                               echo "<h1>Error en el registro</h1>";
                             }
