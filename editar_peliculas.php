@@ -79,56 +79,112 @@
           <?php if (!isset($_POST["id_pelicula"])) : ?>
 
           <form method="post" enctype="multipart/form-data">
-            <fieldset>
-              <legend>Información de La Pelicula</legend>
-              <span>ID Pelicula:</span><input value='<?php echo $id_pelicula; ?>'type="text" name="id_pelicula" required><br>
-              <span>Nombre:</span><input value='<?php echo $nombre; ?>' type="text" name="nombre" required><br>
-              <span>Fecha:</span><input value='<?php echo $fecha; ?>'type="text" name="fecha" required><br>
-              <span>Director:</span><input value='<?php echo $director; ?>' type="text" name="director" required><br>
-              <span>Genero:</span><input value='<?php echo $genero; ?>'type="text" name="genero" required><br>
-              <span>Enlace:</span><input value='<?php echo $link; ?>'type="text" name="link"><br>
-              <span>Actores</span>
-                      <select name="actores[]" multiple>
-                        '<?php  
+
+
+              <h3 align="center">Edita la Pelicula</h3>
+
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">ID Pelicula</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" id="colFormLabel" value='<?php echo $id_pelicula; ?>' name="nombre" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" id="colFormLabel" value='<?php echo $nombre; ?>' name="nombre" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Fecha</label>
+                    <div class="col-sm-8">
+                    <input type="date" class="form-control" id="colFormLabel" value='<?php echo $fecha; ?>' name="fecha" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Director</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" id="colFormLabel" value='<?php echo $director; ?>' name="director" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Género</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" id="colFormLabel" value='<?php echo $genero; ?>' name="genero" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Enlace</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" id="colFormLabel" value='<?php echo $link; ?>' name="link" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Actores que participan (Si son varios Crtl+click)</label>
+                    <div class="col-sm-8">
+                        
+                    <select name="actores[]" multiple required>
+
+                    '<?php  
 
           
-                                $v=[];
+                        $v=[];
 
-                                if ($result=$connection->query($query3)) {
-                                                                                        
-                                  while($obj = $result->fetch_object()) {
+                        if ($result=$connection->query($query3)) {
+                                                                                
+                        while($obj = $result->fetch_object()) {
 
-                                  $v[]=$obj->id_actor;
+                        $v[]=$obj->id_actor;
+
+                        
+                        }
+                        }
+
+                            if ($result=$connection->query($query2)) {
+                                    
+                                while($obj = $result->fetch_object()) {
+
+                                if (in_array($obj->id_actor,$v)) {
+                                    echo "<option selected value=".$obj->id_actor."'>".$obj->nombre."</option>";
+                                } else {
+                                    echo "<option value=".$obj->id_actor."'>".$obj->nombre."</option>";
+                                }                                           
+                                    
                                 
-                                  
-                                  }
                                 }
+                            }             
+                                                
+                        ?>' 
+                        </select>
 
-                                      if ($result=$connection->query($query2)) {
-                                            
-                                        while($obj = $result->fetch_object()) {
+                        </div>
+                     </div>
 
-                                          if (in_array($obj->id_actor,$v)) {
-                                            echo "<option selected value=".$obj->id_actor."'>".$obj->nombre."</option>";
-                                          } else {
-                                            echo "<option value=".$obj->id_actor."'>".$obj->nombre."</option>";
-                                          }                                           
-                                              
-                                          
-                                        }
-                                      }             
-                                                          
-                          ?>' 
-                        </select><br>
 
-                        <span>Subir Imagen</span>  
-
-          <input class="form-control" type="file" name="image" required />
+                <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">Imagen de Portada</label>
+                        <div class="col-sm-8">
+                        <input class="form-control" type="file" name="image" required />
               
-              <input type="hidden" name="id_pelicula" value='<?php echo $id_pelicula; ?>'><br>
-              <p><input type="submit" value="Actualizar"></p>
-            </fieldset>
-          </form>
+                         <input type="hidden" name="id_pelicula" value='<?php echo $id_pelicula; ?>'>
+                        </div>
+                </div>
+                    
+
+                <button type="submit" class="btn btn-primary my-1">Actualizar</button>
+
+                    </form>
+                         
+            
+          
 
           <?php else: ?>
 

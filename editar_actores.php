@@ -66,17 +66,49 @@
           <?php if (!isset($_POST["id_actor"])) : ?>
 
           <form method="post">
-            <fieldset>
-              <legend>Información del Usuario</legend>
-              <span>ID Actor</span><input value='<?php echo $id; ?>'type="text" name="id_actor" required><br>
-              <span>Nombre y Apellidos:</span><input value='<?php echo $nombre; ?>' type="text" name="nombre" required><br>
-              <span>Nacionalidad:</span><input value='<?php echo $nacionalidad; ?>'type="text" name="nacionalidad" required><br>
-              <span>Fecha de Nacimiento:</span><input value='<?php echo $fecha_nacimiento; ?>' type="text" name="fecha_nacimiento" required><br>
+
+
+          <h3 align="center">Edita el Actor</h3>
+
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">ID Actor</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" id="colFormLabel" value='<?php echo $id; ?>' name="id_actor" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Nombre y Apellidos</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" id="colFormLabel" value='<?php echo $nombre; ?>' name="nombre" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Nacionalidad</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" id="colFormLabel" value='<?php echo $nacionalidad; ?>' name="nacionalidad" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Fecha</label>
+                    <div class="col-sm-8">
+                    <input type="date" class="form-control" id="colFormLabel" value='<?php echo $nacionalidad; ?>' name="fecha_nacimiento" required>
+                    </div>
+                </div>
+           
+
+
+                </div>
+
+                <input type="hidden" name="id" value='<?php echo $id; ?>'>
+                <button type="submit" class="btn btn-primary my-1">Actualizar</button>
+
+                    </form>
+                    
               
-              <input type="hidden" name="id" value='<?php echo $id; ?>'>
-              <p><input type="submit" value="Actualizar"></p>
-            </fieldset>
-          </form>
 
           <?php else: ?>
 
